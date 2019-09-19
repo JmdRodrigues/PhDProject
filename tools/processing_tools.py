@@ -1,0 +1,296 @@
+import random as rd
+import numpy as np
+import matplotlib.pyplot as plt
+from novainstrumentation import smooth
+from novainstrumentation.peaks import *
+from novainstrumentation.smooth import smooth
+import novainstrumentation as ni
+from tools.PeakFinder import detect_peaks
+import scipy.signal as sc
+
+
+def sumvolve(x, window):
+    lw=len(window)
+    res=np.zeros(len(x)-lw,'d')
+    for i in range(len(x)-lw):
+        res[i]=sum(abs(x[i:i+lw]-window))/float(lw)
+        #res[i]=sum(abs(x[i:i+lw]*window))
+    return res
+
+def automeanwave(x, fs):
+	#f0
+	f0 = fundamental_frequency(x, fs)
+	print(f0)
+	win_size = int((fs/f0)*1.2)
+
+	randWin_index = rd.randint(0, len(x)-win_size)
+	win = x[randWin_index:randWin_index+win_size]
+	res = sumvolve(x, win)
+
+	return res, win
+
+def plotfft(s, fmax, doplot=False):
+    """ This functions computes the fft of a signal, returning the frequency
+    and their magnitude values.
+
+    Parameters
+    ----------
+    s: array-like
+      the input signal.
+    fmax: int
+      the sampling frequency.
+    doplot: boolean
+      a variable to indicate whether the plot is done or not.
+
+    Returns
+    -------
+    f: array-like
+      the frequency values (xx axis)
+    fs: array-like
+      the amplitude of the frequency values (yy axis)
+    """
+
+    fs = abs(np.fft.fft(s))
+    f = np.linspace(0, fmax // 2, len(s) // 2)
+    if doplot:
+        plt.plot(f[1:len(s) // 2], fs[1:len(s) // 2])
+    return (f[1:len(s) // 2].copy(), fs[1:len(s) // 2].copy())
+
+
+def fundamental_frequency(s, FS):
+	# TODO: review fundamental frequency to guarantee that f0 exists
+	# suggestion peak level should be bigger
+	# TODO: explain code
+	"""Compute fundamental frequency along the specified axes.
+
+    Parameters
+    ----------
+    s: ndarray
+        input from which fundamental frequency is computed.
+    FS: int
+        sampling frequency
+    Returns
+    -------
+    f0: int
+       its integer multiple best explain the content of the signal spectrum.
+    """
+
+	s = s - np.mean(s)
+	f, fs = plotfft(s, FS, doplot=False)
+
+	# fs = smooth(fs, 50.0)
+
+	fs = fs[1:len(fs) // 2]
+	f = f[1:len(f) // 2]
+
+	cond = np.where(f > 0.5)[0][0]
+
+	print(cond)
+	print(fs[cond:])
+
+	bp = BigPeaks(fs[cond:], 0)
+
+	if bp == []:
+		f0 = 0
+	else:
+
+		bp = bp + cond
+
+		f0 = f[min(bp)]
+
+	return f0
+
+
+def BigPeaks(s, th, min_peak_distance=5, peak_return_percentage=0.1):
+	p = peaks(s, th)
+	pp = []
+	if len(p) == 0:
+		pp = []
+	else:
+		p = clean_near_peaks(s, p, min_peak_distance)
+
+		if len(p) != 0:
+			ars = argsort(s[p])
+			pp = p[ars]
+
+			num_peaks_to_return = int(ceil(len(p) * peak_return_percentage))
+
+			pp = pp[-num_peaks_to_return:]
+		else:
+			pp == []
+	return pp
+
+#WindMethod
+def WindowStat(inputSignal, statTool, fs, window_len=50, window='hanning'):
+
+	output = np.zeros(len(inputSignal))
+	win = eval('np.' + window + '(window_len)')
+
+	if inputSignal.ndim != 1:
+		raise ValueError("smooth only accepts 1 dimension arrays.")
+	if inputSignal.size < window_len:
+		raise ValueError("Input vector needs to be bigger than window size.")
+	if window_len < 3:
+		return inputSignal
+
+	inputSignal = inputSignal - np.mean(inputSignal)
+
+	WinRange = int(window_len/2)
+
+	sig = np.r_[inputSignal[WinRange:0:-1], inputSignal, inputSignal[-1:len(inputSignal)-WinRange:-1]]
+
+	# windowing
+	if(statTool is 'stn'):
+		WinSize = window_len
+		numSeg = int(len(inputSignal) / WinSize)
+		SigTemp = np.zeros(numSeg)
+		for i in range(1, numSeg):
+			signal = inputSignal[(i - 1) * WinSize:i * WinSize]
+			SigTemp[i] = sc.signaltonoise(signal)
+		output = np.interp(np.linspace(0, len(SigTemp), len(output)), np.linspace(0, len(SigTemp), len(SigTemp)), SigTemp)
+	elif(statTool is 'zcr'):
+		# inputSignal = inputSignal - smooth(inputSignal, window_len=fs*4)
+		# inputSignal = inputSignal - smooth(inputSignal, window_len=int(fs/10))
+		# sig = np.r_[inputSignal[WinRange:0:-1], inputSignal, inputSignal[-1:len(inputSignal) - WinRange:-1]]
+
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			output[i - int(WinRange)] = ZeroCrossingRate(sig[i - WinRange:WinRange + i]*win)
+		output = smooth(output, window_len=1024)
+	elif (statTool is 'Azcr'):
+		# inputSignal = inputSignal - smooth(inputSignal, window_len=fs*4)
+		# inputSignal = inputSignal - smooth(inputSignal, window_len=int(fs/10))
+		# sig = np.r_[inputSignal[WinRange:0:-1], inputSignal, inputSignal[-1:len(inputSignal) - WinRange:-1]]
+
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			A = np.max(sig[i - WinRange:WinRange + i])
+			output[i - int(WinRange)] = A * ZeroCrossingRate(sig[i - WinRange:WinRange + i] * win)
+		output = smooth(output, window_len=1024)
+	elif(statTool is 'std'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			output[i - WinRange] = np.std(sig[i - WinRange:WinRange + i]*win)
+	elif(statTool is 'subPks'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			pks = [0]
+			win_len = window_len
+			while(len(pks) < 10):
+				pks = detect_peaks(sig[i - int(win_len / 2):int(win_len / 2) + i], valley=False, mph=np.std(sig[i - int(win_len / 2):int(win_len / 2)+ i]))
+				if(len(pks) < 10):
+					win_len += int(win_len/5)
+			sub_zero = pks[1] - pks[0]
+			sub_end = pks[-1] - pks[-2]
+			subPks = np.r_[sub_zero, (pks[1:-1] - pks[0:-2]), sub_end]
+			win = eval('np.' + window + '(len(subPks))')
+			output[i - int(WinRange)] = np.mean(subPks*win)
+	elif (statTool is 'findPks'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			pks = detect_peaks(sig[i - WinRange:WinRange + i], valley=False,
+								   mph=np.std(sig[i - WinRange:WinRange + i]))
+			LenPks = len(pks)
+			output[i - int(WinRange)] = LenPks
+	elif(statTool is 'sum'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			output[i - WinRange] = np.sum(abs(sig[i - WinRange:WinRange + i] * win))
+	elif(statTool is 'AmpDiff'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			win_len = window_len
+			tempSig = sig[i - int(win_len / 2):int(win_len / 2) + i]
+			maxPks = detect_peaks(tempSig, valley=False,
+								   mph=np.std(tempSig))
+			minPks = detect_peaks(tempSig, valley=True,
+								   mph=np.std(tempSig))
+			AmpDiff = np.sum(tempSig[maxPks]) - np.sum(tempSig[minPks])
+			output[i - WinRange] = AmpDiff
+	elif(statTool is 'MF'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			f, Pxx = PowerSpectrum(inputSignal[i - WinRange:i + WinRange], fs=fs, nperseg=WinRange/2)
+			mf = MF_calculus(Pxx)
+			output[i - WinRange] = mf
+	elif(statTool is "SumPS"):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			f, Pxx = PowerSpectrum(inputSignal[i - WinRange:i + WinRange], fs=fs, nperseg=WinRange / 2)
+			sps = SumPowerSpectrum(Pxx)
+			output[i - WinRange] = sps
+	elif(statTool is "AmpMean"):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			output[i - WinRange] = np.mean(abs(sig[i - WinRange:WinRange + i]) * win)
+	elif(statTool is"Spikes1"):
+		ss = 0.1*max(sig)
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			pkd, md = Spikes(sig[i - WinRange:WinRange + i] * win, mph=ss)
+			output[i - WinRange] = pkd
+	elif (statTool is "Spikes2"):
+		ss = 0.1 * max(sig)
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			pkd, md = Spikes(sig[i - WinRange:WinRange + i] * win, mph=ss)
+			output[i - WinRange] = md
+	elif (statTool is "Spikes3"):
+		ss = 0.1 * max(sig)
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			pkd, md = Spikes(abs(sig[i - WinRange:WinRange + i] )* win, mph=ss)
+			output[i - WinRange] = md
+
+	output = output - np.mean(output)
+	output = output/max(output)
+	#output = smooth(output, window_len=10)
+
+	return output
+
+def ZeroCrossingRate(signal):
+	signal = signal - np.mean(signal)
+	ZCVector = np.where(np.diff(np.sign(signal)))[0]
+
+	return len(ZCVector)
+
+def findPeakDistance(signal, mph, threshold):
+	pks = detect_peaks(signal, mph = mph, show = False)
+	vpks = detect_peaks(signal, mph= mph, valley=True)
+
+	if(len(vpks)> len(pks)):
+		pks = vpks
+
+	signaldPks = np.zeros(np.size(signal))
+	dpks = np.log10(abs(np.diff(pks) - np.mean(np.diff(pks))) + 1)
+
+	for i in range(0, len(dpks)):
+		if(i == 0):
+			signaldPks[0:pks[i]] = dpks[i]
+			signaldPks[pks[i]:pks[i + 1]] = dpks[i]
+		elif(i == len(dpks)-1):
+			signaldPks[pks[i]:pks[i+1]] = dpks[-1]
+		else:
+			signaldPks[pks[i]:pks[i+1]] = dpks[i]
+
+def MF_calculus(Pxx):
+    sumPxx = np.sum(Pxx)
+    mf = 0
+    for i in range(0, len(Pxx)):
+        if(np.sum(Pxx[0:i]) < sumPxx/2.0):
+            continue
+        else:
+            mf = i
+            break
+
+    return mf
+
+def SumPowerSpectrum(Pxx):
+    return np.sum(Pxx)
+
+def PowerSpectrum(data, fs, nperseg):
+    f, Pxx = sc.periodogram(data, fs=fs)
+
+    return f, Pxx
+
+def Spikes(inputSignal, mph, edge="rising"):
+	pks = detect_peaks(inputSignal, mph=mph)
+	numPics = len(pks)
+	if(len(pks)<2):
+		meanDistance=0
+	else:
+		meanDistance = np.mean(np.diff(pks))
+
+	return numPics, meanDistance
+
+def mean_norm(sig):
+    a = sig-np.mean(sig)
+    return a/max(a)
+
