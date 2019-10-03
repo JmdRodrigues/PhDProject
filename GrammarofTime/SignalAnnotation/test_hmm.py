@@ -4,47 +4,58 @@ import matplotlib.pyplot as plt
 from hmmlearn import hmm
 
 
-##############################################################
-# Prepare parameters for a 4-components HMM
-# Initial population probability
-startprob = np.array([0.5, 0.5])
-# The transition matrix, note that there are no transitions possible
-# between component 1 and 3
-transmat = np.array([[0.9, 0.1],
-                     [0.1, 0.9]])
-# The means of each component
-means = np.array([[0.0,  0.0],
-                  [0.0, 20.0]])
-# The covariance of each component
-# covars = .5 * np.tile(np.identity(2), (2, 1, 1))
-covars = np.tile(np.array([[5,  0],
-                  [0, 1]]), (2,1,1))
 
-# Build an HMM instance and set parameters
+
 model = hmm.GaussianHMM(n_components=2, covariance_type="full")
+model1 = hmm.GaussianHMM(n_components=2, covariance_type="full")
+remodel = hmm.GaussianHMM(n_components=2, covariance_type="full", n_iter=100)
 
-# Instead of fitting it from the data, we directly set the estimated
-# parameters, the means and covariance of the components
-model.startprob_ = startprob
-model.transmat_ = transmat
-model.means_ = means
-model.covars_ = covars
-###############################################################
+#starting probability
+model.startprob_ = np.array([0.1, 0.9])
+model1.startprob_ = np.array([0.2, 0.8])
 
-# Generate samples
-X, Z = model.sample(500)
-
-# Plot the sampled data
-plt.plot(X[:, 0], X[:, 1], ".-", label="observations", ms=6,
-         mfc="orange", alpha=0.7)
-
-# Indicate the component numbers
-for i, m in enumerate(means):
-    plt.text(m[0], m[1], 'Component %i' % (i + 1),
-             size=17, horizontalalignment='center',
-             bbox=dict(alpha=.7, facecolor='w'))
-plt.legend(loc='best')
-plt.show()
+#State transition probability
+model.transmat_ = np.array([[0, 1],
+                            [1, 0]])
 
 
+model1.transmat_ = np.array([[0.8, 0.2],
+                            [0.7, 0.3]])
 
+
+#Means and covars for each state
+model.means_ = np.array([[0.0, 0.0], [1.0, 1.0]])
+model.covars_ = np.tile(np.identity(2), (3, 1, 1))
+
+model1.means_ = np.array([[0.0, 0.0], [1.0, 1.0]])
+model1.covars_ = np.tile(np.identity(2), (3, 1, 1))
+
+#starting probability
+model.startprob_ = np.array([0.1, 0.9])
+model1.startprob_ = np.array([0.2, 0.8])
+
+# X - feature matrix for individual observations
+# Z - observations
+X, Z = model.sample(100)
+X1, Z1 = model1.sample(100)
+
+#Means and covars for each state
+model.means_ = np.array([[0.0, 0.0], [1.0, 1.0]])
+model.covars_ = np.tile(np.identity(2), (3, 1, 1))
+
+model1.means_ = np.array([[0.0, 0.0], [1.0, 1.0]])
+model1.covars_ = np.tile(np.identity(2), (3, 1, 1))
+
+#Example - Find probability of a sequence belonging to the model
+h_learn = hmm.GaussianHMM(n_components = 2, covariance_type="full",
+                                  params="stmc")
+h_learn2 = hmm.GaussianHMM(n_components=2, covariance_type="full", params="stmc", algorithm="map")
+h_learn.n_iter = 100
+h_learn2.n_iter = 100
+
+h_learn.fit(X)
+h_learn2.fit(X1)
+
+
+Z_pred = h_learn.predict(X)
+Z_pred2 = h_learn2.predict(X1)
