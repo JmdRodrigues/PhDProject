@@ -1,0 +1,22 @@
+#Grammar of Time
+
+##SSTS
+
+Syntactic Search on Time Series
+
+Pre-Process
+
+Connotation
+
+Search
+
+
+
+##STSG
+
+Syntactic Time Series Generation
+
+##TSA
+
+Time Series Annotation
+
