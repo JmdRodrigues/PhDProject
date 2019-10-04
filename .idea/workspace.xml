@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb95e95c-3548-4808-a5a0-5b7d02098ee2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_examples/create_model_SVI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_examples/deep_markov_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ppp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ppp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,30 +15,10 @@
     <SUITE FILE_PATH="coverage/PhDProject$pyro_test.coverage" NAME="pyro_test Coverage Results" MODIFIED="1569407360956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
     <SUITE FILE_PATH="coverage/PhDProject$test_hmm.coverage" NAME="test_hmm Coverage Results" MODIFIED="1570120353750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
     <SUITE FILE_PATH="coverage/PhDProject$create_model_SVI.coverage" NAME="create_model_SVI Coverage Results" MODIFIED="1569419016592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_examples" />
+    <SUITE FILE_PATH="coverage/PhDProject$ppp.coverage" NAME="ppp Coverage Results" MODIFIED="1570203889419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarofTime/test_ssts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="34" selection-start-line="34" selection-end-line="45" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8160">
-              <caret line="557" column="4" selection-start-line="557" selection-start-column="4" selection-end-line="557" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GrammarofTime/load_data.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/test_hmm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="468">
+              <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -87,6 +62,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="242" lean-forward="true" selection-start-line="242" selection-end-line="242" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
@@ -106,6 +93,15 @@
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -168,12 +164,12 @@
         <option value="$PROJECT_DIR$/Hui_SuperProject/sit_to_stand.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/Trendalyze/probability_output.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/probability_output.py" />
-        <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/test_hmm.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/load_data.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_test.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_examples/create_model_SVI.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_examples/deep_markov_model.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb" />
+        <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/test_hmm.py" />
       </list>
     </option>
   </component>
@@ -216,7 +212,7 @@
             <path>
               <item name="PhDProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="PhDProject" type="462c0819:PsiDirectoryNode" />
-              <item name="Hui_SuperProject" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -250,7 +246,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_hmm">
+  <component name="RunManager" selected="Jupyter Notebook.ppp">
+    <configuration name="ppp" type="JupiterNotebook" factoryName="Jupyter Notebook">
+      <module name="ppp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="additionalOptions" value="" />
+      <option name="ipnbHost" value="127.0.0.1" />
+      <option name="ipnbPort" value="8888" />
+      <method v="2" />
+    </configuration>
     <configuration name="create_model_SVI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ppp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -395,23 +409,23 @@
       <workItem from="1569346201756" duration="1402000" />
       <workItem from="1569402898590" duration="10386000" />
       <workItem from="1570022539728" duration="832000" />
-      <workItem from="1570118273424" duration="653000" />
+      <workItem from="1570118273424" duration="4472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86119000" />
+    <option name="totallyTimeSpent" value="89938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1213" height="999" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7770115" visible="true" weight="0.23479006" />
-      <window_info id="Structure" order="1" sideWeight="0.2229885" side_tool="true" visible="true" weight="0.23479006" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7754098" visible="true" weight="0.23479006" />
+      <window_info id="Structure" order="1" sideWeight="0.22459017" side_tool="true" visible="true" weight="0.23479006" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2990556" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29885057" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39885056" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -469,16 +483,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/novainstrumentation/smooth.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/dates.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/novainstrumentation/peaks.py" />
-    <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/plot_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -623,23 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/test_hmm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/pyro_examples/deep_markov_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -651,6 +638,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/plot_hmm_sampling.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/test_hmm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="242" lean-forward="true" selection-start-line="242" selection-end-line="242" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/tests_hmm.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
