@@ -7,15 +7,15 @@ import matplotlib.dates as mdates
 import os
 
 #Hpi values
-hp_index2 = pd.read_excel(r"C:\Users\Wolfgang\PycharmProjects\ppp\GrammarofTime\Trendalyze\HPI_PO_monthly_hist.xls", header=None, skiprows=5)
+hp_index2 = pd.read_excel(r"D:\PhD\Code\GrammarofTime\Trendalyze\HPI_PO_monthly_hist.xls", header=None, skiprows=5)
 
 #selection of columns for time and hpi values
 time_hpi = hp_index2[0]
 hpi_values = hp_index2[19]
 
 #load mortgage data (time and counts)
-time = np.loadtxt(r"C:\Users\Wolfgang\PycharmProjects\ppp\GrammarofTime\Trendalyze\month.txt").astype(int)
-mortgage = np.loadtxt(r"C:\Users\Wolfgang\PycharmProjects\ppp\GrammarofTime\Trendalyze\mortgage_list.txt")
+time = np.loadtxt(r"D:\PhD\Code\GrammarofTime\Trendalyze\month.txt").astype(int)
+mortgage = np.loadtxt(r"D:\PhD\Code\GrammarofTime\Trendalyze\mortgage_list.txt")
 
 #Count mortgage values per month
 unique_mortgage = []
@@ -85,7 +85,7 @@ matches_0 = [(match0, match1) for match0, match1 in matches]
 time, data = gt.Output1(matches2[1], matches_2, 1, time_all)
 time0, data0 = gt.Output1(matches2[1], matches_0, 1, time_all)
 ax3.plot(time0["p"], data0["p"])
-ax3.set_xlabel("date (months)")
+ax3.set_xlabel("date (years)")
 ax3.set_title("Mortgage Increasing Probability")
 ax3.set_ylabel("Probability")
 
@@ -95,10 +95,13 @@ ax11 = plt.subplot(2,1,1)
 ax12 = plt.subplot(2,1,2)
 
 ax11.plot(time["p"], data["p"])
-ax12.errorbar(l, max_p, std_err, marker="o")
-ax12.set_xlabel("months after")
+ax11.set_xlabel("date (years)")
+ax11.set_title("Probability of Increasing Mortgage (2 months after the HPI started increasing)")
+ax11.set_ylabel("Probability")
+ax12.bar(l, max_p, yerr=std_err)
+ax12.set_xlabel("months after HPI started to increase")
 ax12.set_ylabel("mean probability")
-ax12.set_title("Causality plot")
+ax12.set_title("Mean and STD for each month after the HPI has started to increase")
 
 
 
