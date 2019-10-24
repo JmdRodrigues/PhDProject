@@ -4,6 +4,7 @@ import subprocess
 import matplotlib.pyplot as plt
 from tools.load_tools import loadH5
 from tools.plot_tools import *
+import pdflatex
 
 
 example_path = "/media/jeanraltique/FishStory/Projectos/Doutoramento/PhDCode/PhDProject/Hui_SuperProject/Data_Examples/"
@@ -51,14 +52,11 @@ args = parser.parse_args()
 with open('cover.tex','w') as f:
     f.write(content%args.__dict__)
 
-cmd = ['pdflatex', '-interaction', 'nonstopmode', 'cover.tex']
-proc = subprocess.Popen(cmd)
-proc.communicate()
+with open('cover.tex', 'rb') as f:
+    pdfl = pdflatex.PDFLaTeX.from_binarystring(f.read(), 'cover')
 
-retcode = proc.returncode
-if not retcode == 0:
-    os.unlink('cover.pdf')
-    raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd)))
+pdfl.set_output_directory("/media/jeanraltique/FishStory/Projectos/Doutoramento/PhDCode/PhDProject/PDF_generator")
+pdfl.set_pdf_filename("cover")
 
-os.unlink('cover.tex')
-os.unlink('cover.log')
+
+pdf, log, cp = pdfl.create_pdf(keep_pdf_file=True)

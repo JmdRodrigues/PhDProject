@@ -1,10 +1,103 @@
 from pylab import rc, close, figure, axes, subplot, plot, axis, show, grid, savefig, text, gcf, gca, draw
 from numpy import arange
+import numpy as np
 # added import - David Belo
 from matplotlib import pyplot as plt
 import pandas
 import tkinter.filedialog as tkFileDialog
 
+from matplotlib.font_manager import FontProperties
+from matplotlib.figure import SubplotParams
+from matplotlib.markers import MarkerStyle
+import matplotlib.patheffects as pte
+import matplotlib.patches as mpatches
+import matplotlib.lines as mlines
+import matplotlib.gridspec as grid
+import matplotlib as mpl
+
+
+def plot_config():
+
+    # color
+    face_color_r = 248 / 255.0
+    face_color_g = 247 / 255.0
+    face_color_b = 249 / 255.0
+
+    rc('lines', linewidth=2, color='k')
+
+    rc('text', color='grey')
+
+    rc('figure', figsize=(20, 10), dpi=96)
+
+    rc('axes', grid=True, edgecolor='grey', labelsize=10)
+
+    rc('grid', color='lightgrey')
+
+
+def subplot_pars():
+    # pars
+    left = 0.05  # the left side of the subplots of the figure
+    right = 0.95  # the right side of the subplots of the figure
+    bottom = 0.05  # the bottom of the subplots of the figure
+    top = 0.92  # the top of the subplots of the figure
+    wspace = 0.2  # the amount of width reserved for blank space between subplots
+    hspace = 2  # the amount of height reserved for white space between subplots
+
+    pars = SubplotParams(left, bottom, right, top, wspace, hspace)
+
+    return pars
+
+
+def font_config():
+
+    # specify Font properties with fontmanager---------------------------------------------------
+    font0 = FontProperties()
+    font0.set_weight('medium')
+    font0.set_family('monospace')
+
+    # Specify Font properties of Legends
+    font1 = FontProperties()
+    font1.set_weight('normal')
+    font1.set_family('sans-serif')
+    font1.set_style('italic')
+    font1.set_size(12)
+
+    # Specify font properties of Titles
+    font2 = FontProperties()
+    font2.set_size(15)
+    font2.set_family('sans-serif')
+    font2.set_weight('medium')
+    font2.set_style('italic')
+
+    return font0, font1, font2
+
+def Cplot(y, x=0, ax=0):
+    plot_config()
+    normal_f, legends_f, titles_f = font_config()
+
+    if(x == 0):
+        x = np.linspace(0, len(y), len(y))
+
+    if (ax == 0):
+        plt.plot(x, y)
+    else:
+        ax.plot(x, y)
+
+def Csubplot(n_rows, n_columns, graphs):
+    if(len(graphs)!=n_rows*n_columns):
+        return "error...number of groups of plots must be equal to the number of " \
+               "subplots"
+    else:
+        fig, axs = plt.subplots(n_rows, n_columns)
+        graph_group = 0
+        for row in range(0, n_rows):
+            print(row)
+            for column in range(0, n_columns):
+                print(column)
+                for graph in graphs[graph_group]:
+                    Cplot(y=graph, x=0, ax=axs[graph_group])
+                graph_group+=1
+    return axes
 
 def zoom(event):
     ax = gca()
