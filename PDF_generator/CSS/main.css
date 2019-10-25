@@ -17,6 +17,30 @@
   Base
 */
 
+thead   {display: block;}
+
+@page {
+  size: A4;
+    width: 210mm;
+    height: 297mm;
+    margin: 10mm;
+}
+
+@media print {
+    thead { display: table-header-group; }
+
+    .container{
+    page-break-inside: avoid;
+    }
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+
+  /* ... the rest of the rules ... */
+}
+
 body {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
   font-size: 18px;
@@ -24,7 +48,7 @@ body {
   line-height: 1.75rem;
 }
 
-@media (max-width: 30em) {
+@media (max-width: 190mm) {
   body {
     font-size: 14px;
     line-height: 1.5rem;
@@ -61,81 +85,100 @@ a:hover {
   border-bottom: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+.header, .header-space,
+.footer, .footer-space {
+    height:5cm;
+    position: fixed;
+
+}.header {
+  position: fixed;
+  top: 0;
+}.footer {
+  position: fixed;
+  bottom: 0;
 }
 
-blockquote {
-  margin: 10px 20px 10px;
-  padding: 0px 15px;
-  border-left: 0.25em solid #ccc;
-  color: #999;
-  line-height: 1.5;
-}
+/*img {*/
+  /*max-width: 50%;*/
+  /*height: auto;*/
+  /*!*border-radius: 1cm;*!*/
+/*}*/
 
-hr {
-  border-top: 1px solid #ccc;
-}
+/*blockquote {*/
+  /*margin: 10px 20px 10px;*/
+  /*padding: 0px 15px;*/
+  /*border-left: 0.25em solid #ccc;*/
+  /*color: #999;*/
+  /*line-height: 1.5;*/
+/*}*/
+
+/*hr {*/
+  /*border-top: 1px solid #ccc;*/
+/*}*/
 
 /*
   Site container
 */
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1024px;
+  /*margin-left: 10mm;*/
+  /*margin-right: 10mm;*/
+  /*margin-top: 20mm;*/
+  /*margin-bottom: 20mm;*/
+  width: 210mm;
+    text-align: justify;
+    text-justify:inter-word;
 }
 
 /*48em*/
 
-@media (max-width: 1024px) {
-  .container {
-    width: 90vw;
-  }
-}
+/*@media (max-width: 210mm) {*/
+  /*.container {*/
+    /*width: 210mm;*/
+      /*height: 297mm;*/
+  /*}*/
+/*}*/
 
 /*
   Masthead
 */
 
-.masthead {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-bottom: 4rem;
-  font-family: "Quattrocento Sans", sans-serif;
-}
+/*.masthead {*/
+  /*!*margin-bottom: 0.5cm;*!*/
+
+    /*align-items: center;*/
+
+/*}*/
 
 .masthead a:hover {
   color:black;
 }
 
 .masthead-title a {
-  font-size: 2rem;
+  /*font-size: 2rem;*/
+  font-family: "Quattrocento Sans", sans-serif;
   text-decoration: none;
   color: #505050;
+
 }
 
 .masthead-subtitle {
   color: #999;
 }
 
+.masthead-img {
+    display: inline-block;
+    max-height: 5%;
+    max-width: 5%;
+    padding-top: 0.5cm;
+}
 /*
   Thumbnail
 */
 
-.thumbnail-container {
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 5px;
-  margin-bottom: 25px;
-}
-
-.thumbnail-container img{
-  margin-top: -11.5%;
-  margin-bottom: -11.5%;
+.content_title{
+    text-decoration: none;
+    color: #505050;
 }
 
 /*
@@ -147,7 +190,7 @@ hr {
 }
 
 .posts {
-  margin-bottom: 5rem;
+  margin-bottom: 1cm;
   padding: 0px;
   list-style: none;
     text-align: justify;
