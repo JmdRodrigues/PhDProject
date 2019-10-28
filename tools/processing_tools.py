@@ -168,6 +168,9 @@ def WindowStat(inputSignal, statTool, fs, window_len=50, window='hanning'):
 	elif(statTool is 'std'):
 		for i in range(int(WinRange), len(sig) - int(WinRange)):
 			output[i - WinRange] = np.std(sig[i - WinRange:WinRange + i]*win)
+	elif (statTool is 'mean'):
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			output[i - WinRange] = np.mean(sig[i - WinRange:WinRange + i] * win)
 	elif(statTool is 'subPks'):
 		for i in range(int(WinRange), len(sig) - int(WinRange)):
 			pks = [0]
