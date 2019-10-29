@@ -430,20 +430,26 @@ def prep_str(cfgstr, ls):
 
 
 def plot_matches(s, m, scatter=False):
-    figure(figsize=(16, 5));
-    plot(s);
+    figure(figsize=(16, 5))
+    plot(s)
     if (scatter):
         [plot(i[0], s[i[0]], 'o', color='r') for i in m];
     else:
         [vlines(i[0], np.min(s), np.max(s), lw=3) for i in m];
 
 def pre_processing(s, processing_methods):
-    pp_str = prep_str(processing_methods, len(s))
+    s = np.asarray(s)
+    if s.ndim == 1:
+        s = np.array([s])
+    ns = np.copy(s)
+
+    pp_str = prep_str(processing_methods, len(ns))
+
     operands = ""
     for i in range(len(s)):
         pp_func_stack = pp_str[i].split(" ")
         for j, val in enumerate(pp_func_stack):
-
+            print(val)
             if not isfloat(val):
                 if val is "":
                     print("Space")
@@ -452,6 +458,7 @@ def pre_processing(s, processing_methods):
                     sys.exit('Unknown pre-processing symbol.')
                 else:
                     operator = val
+                    # print(gots_func_dict["pre_processing"][operator])
                     for subval in pp_func_stack[j + 1:]:
                         if not isfloat(subval):
                             break
@@ -459,15 +466,14 @@ def pre_processing(s, processing_methods):
                             operands += subval + ','
 
                     if operands is "":
-                        s[i] = eval(gots_func_dict["pre_processing"][operator] + '(s[' + str(i) + '])')
+                        ns[i] = eval(gots_func_dict["pre_processing"][operator] + '(s[' + str(i) + '])')
                     else:
-                        s[i] = eval(
+                        ns[i] = eval(
                             gots_func_dict["pre_processing"][operator] + '(s[' + str(i) + '],' + operands[:-1] + ')')
                     operands = ""
             else:
                 continue
-    print(s)
-    return s
+    return ns
 
 def connotation(s, connotation):
     sc_str = prep_str(connotation, len(s))
@@ -531,9 +537,7 @@ def ssts(s, cfg, report='clean'):
         The signal segment that corresponds to the query result.
     """
     # Handles exception to multisignal approach.
-    s = np.asarray(s)
-    if s.ndim == 1:
-        s = np.array([s])
+
     ns = np.copy(s)
 
     # Layer 1: Pre-processing

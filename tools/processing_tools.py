@@ -6,6 +6,7 @@ from novainstrumentation.peaks import *
 from novainstrumentation.smooth import smooth
 import novainstrumentation as ni
 from tools.PeakFinder import detect_peaks
+from scipy.stats import skew
 import scipy.signal as sc
 
 
@@ -119,6 +120,104 @@ def BigPeaks(s, th, min_peak_distance=5, peak_return_percentage=0.1):
 		else:
 			pp == []
 	return pp
+
+def NewWindowStat(inputSignal, statTools, fs, window_len=50, window="hanning"):
+
+	win = eval('np.' + window + '(window_len)')
+
+	if inputSignal.ndim != 1:
+		raise ValueError("smooth only accepts 1 dimension arrays.")
+	if inputSignal.size < window_len:
+		raise ValueError("Input vector needs to be bigger than window size.")
+	if window_len < 3:
+		return inputSignal
+
+	inputSignal = inputSignal - np.mean(inputSignal)
+
+	WinRange = int(window_len / 2)
+
+	sig = np.r_[inputSignal[WinRange:0:-1], inputSignal, inputSignal[-1:len(inputSignal) - WinRange:-1]]
+
+	if(len(statTools)>1):
+
+		output = np.zeros((len(inputSignal), len(statTools)))
+
+		for i in range(int(WinRange), len(sig) - int(WinRange)):
+			for n, statTool in enumerate(statTools):
+				# print(statTool)
+				signal_segment = sig[i - WinRange:WinRange + i]
+				if(statTool is "zcr"):
+					output[i - int(WinRange), n] = ZeroCrossingRate(signal_segment*win)
+					# output[:, n] = smooth(output, window_len=1024)
+				elif(statTool is 'Azcr'):
+					A = np.max(signal_segment)
+					output[i - int(WinRange), n] = A*ZeroCrossingRate(signal_segment*win)
+				elif(statTool is "std"):
+					output[i - int(WinRange), n] = np.std(signal_segment)
+				elif(statTool is "skw"):
+					output[i - int(WinRange), n] = skew(signal_segment)
+				elif (statTool is "mean"):
+					output[i - int(WinRange), n] = np.mean(signal_segment)
+				elif (statTool is "subPks"):
+					pks = [0]
+					win_len = window_len
+					while (len(pks) < 10):
+						pks = detect_peaks(signal_segment, valley=False,
+										   mph=np.std(signal_segment))
+						if (len(pks) < 10):
+							win_len += int(win_len / 5)
+					sub_zero = pks[1] - pks[0]
+					sub_end = pks[-1] - pks[-2]
+					subPks = np.r_[sub_zero, (pks[1:-1] - pks[0:-2]), sub_end]
+					output[i - int(WinRange), n] = np.mean(subPks)
+
+				elif (statTool is "findPks"):
+					pks = detect_peaks(signal_segment, valley=False,
+									   mph=np.std(signal_segment))
+					LenPks = len(pks)
+					output[i - int(WinRange), n] = LenPks
+
+				elif(statTool is 'sum'):
+					output[i - WinRange, n] = np.sum(abs(signal_segment))
+
+				elif (statTool is 'AmpDiff'):
+					maxPks = detect_peaks(signal_segment, valley=False,
+										  mph=np.std(signal_segment))
+					minPks = detect_peaks(signal_segment, valley=True,
+										  mph=np.std(signal_segment))
+					AmpDiff = np.sum(signal_segment[maxPks]) - np.sum(signal_segment[minPks])
+					output[i - WinRange] = AmpDiff
+
+				elif (statTool is "SumPS"):
+					f, Pxx = PowerSpectrum(signal_segment, fs=fs, nperseg=WinRange / 2)
+					sps = SumPowerSpectrum(Pxx)
+					output[i - WinRange, n] = sps
+
+				elif (statTool is "AmpMean"):
+					output[i - WinRange, n] = np.mean(abs(signal_segment))
+
+				elif (statTool is "Spikes1"):
+					ss = 0.1 * max(sig)
+					pkd, md = Spikes(signal_segment, mph=ss)
+					output[i - WinRange, n] = pkd
+
+				elif (statTool is "Spikes2"):
+					ss = 0.1 * max(sig)
+					pkd, md = Spikes(signal_segment, mph=ss)
+					output[i - WinRange, n] = md
+
+				elif (statTool is "Spikes3"):
+					ss = 0.1 * max(sig)
+					pkd, md = Spikes(abs(signal_segment), mph=ss)
+					output[i - WinRange, n] = md
+
+		# output = output - np.mean(output)
+		# output = output / max(output)
+
+	else:
+		output = WindowStat(inputSignal, statTools, fs, window_len=50, window='hanning')
+
+	return output
 
 #WindMethod
 def WindowStat(inputSignal, statTool, fs, window_len=50, window='hanning'):

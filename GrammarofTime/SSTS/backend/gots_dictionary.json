@@ -5,7 +5,7 @@
             "LP": "lowpass",
             "~": "smooth",
             "∥": "abs",
-            "⊚": "stat_white",
+            "M": "stat_white",
             "RM": "RemLowPass"
   },
   "connotation": {

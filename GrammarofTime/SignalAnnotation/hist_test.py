@@ -50,8 +50,8 @@ def Window_dist(s, fs=1, window_len=50, window='hanning'):
         sig_tmp = sig[i - WinRange:WinRange + i]
         x = np.linspace(min(sig_tmp) - 2, max(sig_tmp) + 2, 100)
         pdf = kde_sklearn(sig_tmp, x, bandwidth=1)
-        plt.plot(pdf)
-        plt.show()
+        # plt.plot(pdf)
+        # plt.show()
         h, b = dispHist(x, pdf)
         output1[i - WinRange] = h
         output2[i - WinRange] = b
