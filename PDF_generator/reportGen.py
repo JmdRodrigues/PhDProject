@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 import weasyprint
 import re
 import os
+from definitions import CONFIG_PATH
 
 class Report:
     def __init__(self, html_template, report_name):
 
-        self.html_template_dir = "D:/PhD/Code/PDF_generator/html_templates/"
+        self.html_template_dir = CONFIG_PATH + "/PDF_generator/html_templates/"
 
         self.report_name = report_name
 
@@ -22,7 +23,7 @@ class Report:
 
         self.output_tmp = data
 
-        self.output = open("D:/PhD/Code/PDF_generator/output_html/" + self.report_name+'.html', "w")
+        self.output = open(CONFIG_PATH + "/PDF_generator/output_html/" + self.report_name+'.html', "w")
 
 
     def add_title(self, title):
@@ -56,7 +57,7 @@ class Report:
     def add_graph(self, fig, fig_caption, fig_name):
         self.fig_counts+=1
 
-        fig.savefig("D:/PhD/Code/PDF_generator/output_html/images/"+fig_name+".png")
+        fig.savefig(CONFIG_PATH+"/PDF_generator/output_html/images/"+fig_name+".png")
 
         html_content = """
         
@@ -74,7 +75,7 @@ class Report:
         self.output.close()
 
 
-        html = weasyprint.HTML("D:/PhD/Code/PDF_generator/output_html/" + self.report_name+'.html')
+        html = weasyprint.HTML(CONFIG_PATH + "/PDF_generator/output_html/" + self.report_name+'.html')
         # html = weasyprint.HTML(string=self.output_tmp)
-        CSS = ["D:/PhD/Code/PDF_generator/CSS/"+css_i for css_i in os.listdir("D:/PhD/Code/PDF_generator/CSS")]
-        pdf = html.write_pdf("D:/PhD/Code/PDF_generator/output_pdf/" + self.report_name + ".pdf", stylesheets=CSS)
+        CSS = [CONFIG_PATH+"/PDF_generator/CSS/"+css_i for css_i in os.listdir(CONFIG_PATH + "/PDF_generator/CSS")]
+        pdf = html.write_pdf(CONFIG_PATH + "/PDF_generator/output_pdf/" + self.report_name + ".pdf", stylesheets=CSS)

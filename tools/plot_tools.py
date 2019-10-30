@@ -18,6 +18,8 @@ import matplotlib as mpl
 
 def plot_config():
 
+    ratio = 16/4
+
     # color
     face_color_r = 248 / 255.0
     face_color_g = 247 / 255.0
@@ -27,9 +29,9 @@ def plot_config():
 
     rc('text', color='grey')
 
-    rc('figure', figsize=(20, 10), dpi=96)
+    rc('figure', figsize=(8, 8/ratio), dpi=96)
 
-    rc('axes', grid=True, edgecolor='grey', labelsize=10)
+    rc('axes', grid=True, edgecolor='grey', labelsize=20)
 
     rc('grid', color='lightgrey')
 

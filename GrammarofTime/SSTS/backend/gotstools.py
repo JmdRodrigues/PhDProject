@@ -15,8 +15,11 @@ import matplotlib.pyplot as plt
 
 from collections import Counter
 
+from definitions import CONFIG_PATH
+
+
 with open(
-        r'D:\PhD\Code\GrammarofTime\SSTS\backend\gots_dictionary.json') as data_file:
+        CONFIG_PATH + r'/GrammarofTime/SSTS/backend/gots_dictionary.json') as data_file:
     gots_func_dict = json.load(data_file)
 
 
