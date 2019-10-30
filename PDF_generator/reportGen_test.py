@@ -9,7 +9,7 @@ plt.plot(a)
 
 doc = rg.Report("libphys", "test_report")
 doc.add_title("My first figure")
-doc.add_graph(fig, "fig_test")
+doc.add_graph(fig, "Test of caption figure", "fig_test")
 mkd_content = """
 
 ##Adding some Markdown for *fun*
