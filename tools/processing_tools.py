@@ -6,8 +6,29 @@ from novainstrumentation.peaks import *
 from novainstrumentation.smooth import smooth
 import novainstrumentation as ni
 from tools.PeakFinder import detect_peaks
-from scipy.stats import skew
+from scipy.stats import skew, normaltest, kurtosis
 import scipy.signal as sc
+
+def prob_hist(x, hist, bins, inverted=False, log=False):
+
+	prob_x = np.zeros(len(x))
+	hist_norm = hist/sum(hist)
+
+	for i in range(len(bins) - 1):
+		prob_x[np.where(np.logical_and(x > bins[i], x < bins[i + 1]))[0]] = hist_norm[i]
+	if(inverted and log):
+		return abs(np.log10(1-prob_x))
+	elif(inverted and log==False):
+		return 1-prob_x
+	elif(inverted==False and log):
+		return abs(np.log10(prob_x))
+	else:
+		return prob_x
+
+def hist_dist(x, bin_nbr="fd"):
+	hist, bins = np.histogram(x, bins=bin_nbr)
+
+	return hist, bins
 
 
 def sumvolve(x, window):
@@ -143,21 +164,21 @@ def NewWindowStat(inputSignal, statTools, fs, window_len=50, window="hanning"):
 		output = np.zeros((len(inputSignal), len(statTools)))
 
 		for i in range(int(WinRange), len(sig) - int(WinRange)):
+
 			for n, statTool in enumerate(statTools):
-				# print(statTool)
+
 				signal_segment = sig[i - WinRange:WinRange + i]
 				if(statTool is "zcr"):
-					output[i - int(WinRange), n] = ZeroCrossingRate(signal_segment*win)
-					# output[:, n] = smooth(output, window_len=1024)
+					output[i - int(WinRange), n] = ZeroCrossingRate(signal_segment)
 				elif(statTool is 'Azcr'):
 					A = np.max(signal_segment)
-					output[i - int(WinRange), n] = A*ZeroCrossingRate(signal_segment*win)
+					output[i - int(WinRange), n] = A*ZeroCrossingRate(signal_segment)
 				elif(statTool is "std"):
-					output[i - int(WinRange), n] = np.std(signal_segment)
+					output[i - int(WinRange), n] = np.std(signal_segment*win)
 				elif(statTool is "skw"):
 					output[i - int(WinRange), n] = skew(signal_segment)
 				elif (statTool is "mean"):
-					output[i - int(WinRange), n] = np.mean(signal_segment)
+					output[i - int(WinRange), n] = np.mean(signal_segment*win)
 				elif (statTool is "subPks"):
 					pks = [0]
 					win_len = window_len
@@ -172,24 +193,28 @@ def NewWindowStat(inputSignal, statTools, fs, window_len=50, window="hanning"):
 					output[i - int(WinRange), n] = np.mean(subPks)
 
 				elif (statTool is "findPks"):
-					pks = detect_peaks(signal_segment, valley=False,
+					pks = detect_peaks(signal_segment*win, valley=False,
 									   mph=np.std(signal_segment))
 					LenPks = len(pks)
 					output[i - int(WinRange), n] = LenPks
 
 				elif(statTool is 'sum'):
-					output[i - WinRange, n] = np.sum(abs(signal_segment))
+					output[i - WinRange, n] = np.sum(abs(signal_segment)*win)
+				elif (statTool is 'normal'):
+					output[i - WinRange, n] = normaltest(signal_segment)[0]
+				elif (statTool is 'krt'):
+					output[i - WinRange, n] = kurtosis(signal_segment)
 
 				elif (statTool is 'AmpDiff'):
-					maxPks = detect_peaks(signal_segment, valley=False,
+					maxPks = detect_peaks(signal_segment*win, valley=False,
 										  mph=np.std(signal_segment))
-					minPks = detect_peaks(signal_segment, valley=True,
+					minPks = detect_peaks(signal_segment*win, valley=True,
 										  mph=np.std(signal_segment))
 					AmpDiff = np.sum(signal_segment[maxPks]) - np.sum(signal_segment[minPks])
 					output[i - WinRange] = AmpDiff
 
 				elif (statTool is "SumPS"):
-					f, Pxx = PowerSpectrum(signal_segment, fs=fs, nperseg=WinRange / 2)
+					f, Pxx = PowerSpectrum(signal_segment*win, fs=fs, nperseg=WinRange / 2)
 					sps = SumPowerSpectrum(Pxx)
 					output[i - WinRange, n] = sps
 
@@ -215,7 +240,7 @@ def NewWindowStat(inputSignal, statTools, fs, window_len=50, window="hanning"):
 		# output = output / max(output)
 
 	else:
-		output = WindowStat(inputSignal, statTools, fs, window_len=50, window='hanning')
+		output = WindowStat(inputSignal, statTools[0], fs, window_len=50, window='hanning')
 
 	return output
 

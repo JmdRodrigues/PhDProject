@@ -8,11 +8,13 @@ import os
 class Report:
     def __init__(self, html_template, report_name):
 
-        self.html_template_dir = "../PDF_generator/html_templates/"
+        self.html_template_dir = "D:/PhD/Code/PDF_generator/html_templates/"
 
         self.report_name = report_name
 
         self.template = self.html_template_dir + html_template + ".html"
+
+        self.fig_counts = 0
 
         #copy template to output html
         with open(self.template) as f:
@@ -20,7 +22,7 @@ class Report:
 
         self.output_tmp = data
 
-        self.output = open("../PDF_generator/output_html/" + self.report_name+'.html', "w")
+        self.output = open("D:/PhD/Code/PDF_generator/output_html/" + self.report_name+'.html', "w")
 
 
     def add_title(self, title):
@@ -51,13 +53,17 @@ class Report:
         pattern = re.compile(r'{{next_o}}')
         self.output_tmp = pattern.sub(html_content, self.output_tmp)
 
-    def add_graph(self, fig, fig_name):
-        fig.savefig("../PDF_generator/output_html/images/"+fig_name+".png")
+    def add_graph(self, fig, fig_caption, fig_name):
+        self.fig_counts+=1
+
+        fig.savefig("D:/PhD/Code/PDF_generator/output_html/images/"+fig_name+".png")
 
         html_content = """
-        <div class="fig">
+        
+        <figure class="fig">
             <img src="../output_html/images/"""+fig_name+""".png">
-        </div>
+            <figcaption>""" "Figure" + str(self.fig_counts) + " " + fig_caption + """</figcaption>
+        </figure>
         {{next_o}}
         """
         pattern = re.compile(r'{{next_o}}')
@@ -68,7 +74,7 @@ class Report:
         self.output.close()
 
 
-        html = weasyprint.HTML("../PDF_generator/output_html/" + self.report_name+'.html')
+        html = weasyprint.HTML("D:/PhD/Code/PDF_generator/output_html/" + self.report_name+'.html')
         # html = weasyprint.HTML(string=self.output_tmp)
-        CSS = ["../PDF_generator/CSS/"+css_i for css_i in os.listdir("../PDF_generator/CSS")]
-        pdf = html.write_pdf("../PDF_generator/output_pdf/" + self.report_name + ".pdf", stylesheets=CSS)
+        CSS = ["D:/PhD/Code/PDF_generator/CSS/"+css_i for css_i in os.listdir("D:/PhD/Code/PDF_generator/CSS")]
+        pdf = html.write_pdf("D:/PhD/Code/PDF_generator/output_pdf/" + self.report_name + ".pdf", stylesheets=CSS)

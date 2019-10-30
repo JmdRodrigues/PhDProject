@@ -441,13 +441,16 @@ def pre_processing(s, processing_methods):
     s = np.asarray(s)
     if s.ndim == 1:
         s = np.array([s])
-    ns = np.copy(s)
 
-    pp_str = prep_str(processing_methods, len(ns))
+    ns2 = np.zeros(np.shape(s))
+
+    pp_str = prep_str(processing_methods, len(ns2))
 
     operands = ""
+
     for i in range(len(s)):
         pp_func_stack = pp_str[i].split(" ")
+        ns2[i, :] = s[i]
         for j, val in enumerate(pp_func_stack):
             print(val)
             if not isfloat(val):
@@ -466,14 +469,18 @@ def pre_processing(s, processing_methods):
                             operands += subval + ','
 
                     if operands is "":
-                        ns[i] = eval(gots_func_dict["pre_processing"][operator] + '(s[' + str(i) + '])')
+                        ns2[i, :] = eval(gots_func_dict["pre_processing"][operator] + '(ns2[' + str(i) + ',:])')
+
                     else:
-                        ns[i] = eval(
-                            gots_func_dict["pre_processing"][operator] + '(s[' + str(i) + '],' + operands[:-1] + ')')
+                        ns2[i, :] = eval(
+                            gots_func_dict["pre_processing"][operator] + '(ns2[' + str(i) + ',:],' + operands[:-1] + ')')
                     operands = ""
             else:
                 continue
-    return ns
+        if(len(s)==1):
+            return ns2[0]
+        else:
+            return ns2
 
 def connotation(s, connotation):
     sc_str = prep_str(connotation, len(s))

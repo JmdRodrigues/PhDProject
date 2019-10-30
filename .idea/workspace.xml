@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83816701-f640-43f2-abe9-d8b91f54ae51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PDF_generator/output_html/images/fig_test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gots_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gots_dictionary.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/test_pdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/hist_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/CSS/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/CSS/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/html_templates/libphys.html" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/html_templates/libphys.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/images/fig_test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/output_reports/test_report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF_generator/output_html/images/fig_test.png" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/output_html/images/fig_test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF_generator/output_html/test_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/output_html/test_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF_generator/output_pdf/test_report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/output_pdf/test_report.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PDF_generator/reportGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/reportGen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/test_report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/test_report.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PDF_generator/test_reportGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/reportGen_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF_generator/reportGen_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_generator/reportGen_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/processing_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/processing_tools.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,14 +18,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="110">
+              <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PDF_generator/reportGen.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PDF_generator/reportGen_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/probability_output.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-850">
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,16 +70,16 @@
         <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/backend_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1751">
-              <caret line="356" lean-forward="true" selection-start-line="356" selection-end-line="356" />
+            <state relative-caret-position="290">
+              <caret line="482" column="22" lean-forward="true" selection-start-line="482" selection-start-column="22" selection-end-line="482" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -74,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="150" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+            <state relative-caret-position="51">
+              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -110,17 +132,18 @@
         <option value="$PROJECT_DIR$/PDF_generator/CSS/main.css" />
         <option value="$PROJECT_DIR$/PDF_generator/html_templates/libphys.html" />
         <option value="$PROJECT_DIR$/PDF_generator/output_html/test_report.html" />
-        <option value="$PROJECT_DIR$/PDF_generator/reportGen.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/hist_test.py" />
-        <option value="$PROJECT_DIR$/tools/processing_tools.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gots_dictionary.json" />
         <option value="$PROJECT_DIR$/GrammarofTime/SSTS/backend/backend_test.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py" />
+        <option value="$PROJECT_DIR$/tools/processing_tools.py" />
+        <option value="$PROJECT_DIR$/PDF_generator/reportGen_test.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py" />
+        <option value="$PROJECT_DIR$/PDF_generator/reportGen.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -131,6 +154,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,38 +165,18 @@
             <path>
               <item name="Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="Code" type="462c0819:PsiDirectoryNode" />
-              <item name="GrammarofTime" type="462c0819:PsiDirectoryNode" />
+              <item name=".ipynb_checkpoints" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="Code" type="462c0819:PsiDirectoryNode" />
-              <item name="GrammarofTime" type="462c0819:PsiDirectoryNode" />
-              <item name="SSTS" type="462c0819:PsiDirectoryNode" />
+              <item name="PDF_generator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="Code" type="462c0819:PsiDirectoryNode" />
-              <item name="GrammarofTime" type="462c0819:PsiDirectoryNode" />
-              <item name="SSTS" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Code" type="462c0819:PsiDirectoryNode" />
-              <item name="GrammarofTime" type="462c0819:PsiDirectoryNode" />
-              <item name="SSTS" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Code" type="462c0819:PsiDirectoryNode" />
-              <item name="Hui_SuperProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Code" type="462c0819:PsiDirectoryNode" />
-              <item name="Hui_SuperProject" type="462c0819:PsiDirectoryNode" />
-              <item name="Data_Examples" type="462c0819:PsiDirectoryNode" />
+              <item name="PDF_generator" type="462c0819:PsiDirectoryNode" />
+              <item name="output_html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Code" type="b2602c69:ProjectViewProjectNode" />
@@ -183,7 +187,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,18 +316,18 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.pytest in reportGen_test.py" />
       <item itemvalue="Python.reportGen_test" />
-      <item itemvalue="Python tests.pytest in hist_test.py" />
       <item itemvalue="Python.hist_test" />
       <item itemvalue="Python.annotation_feature" />
+      <item itemvalue="Python tests.pytest in reportGen_test.py" />
+      <item itemvalue="Python tests.pytest in hist_test.py" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.annotation_feature" />
+        <item itemvalue="Python.reportGen_test" />
         <item itemvalue="Python.hist_test" />
         <item itemvalue="Python tests.pytest in hist_test.py" />
-        <item itemvalue="Python.reportGen_test" />
         <item itemvalue="Python tests.pytest in reportGen_test.py" />
       </list>
     </recent_temporary>
@@ -340,6 +343,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572262522468</updated>
       <workItem from="1572262524044" duration="17905000" />
+      <workItem from="1572338101063" duration="17928000" />
     </task>
     <servers />
   </component>
@@ -355,32 +359,33 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17905000" />
+    <option name="totallyTimeSpent" value="35833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" auto_hide="true" id="SciView" show_stripe_button="false" type="FLOATING" weight="0.32980332" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" auto_hide="true" id="SciView" order="3" show_stripe_button="false" type="FLOATING" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,8 +394,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Code$pytest_in_test_reportGen_py.coverage" NAME="pytest in test_reportGen.py Coverage Results" MODIFIED="1572262625224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PDF_generator" />
     <SUITE FILE_PATH="coverage/Code$hist_test.coverage" NAME="hist_test Coverage Results" MODIFIED="1572282026546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
-    <SUITE FILE_PATH="coverage/Code$reportGen_test.coverage" NAME="reportGen_test Coverage Results" MODIFIED="1572272078169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PDF_generator" />
-    <SUITE FILE_PATH="coverage/Code$annotation_feature.coverage" NAME="annotation_feature Coverage Results" MODIFIED="1572310801515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
+    <SUITE FILE_PATH="coverage/Code$reportGen_test.coverage" NAME="reportGen_test Coverage Results" MODIFIED="1572368946729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PDF_generator" />
+    <SUITE FILE_PATH="coverage/Code$annotation_feature.coverage" NAME="annotation_feature Coverage Results" MODIFIED="1572369798272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
     <SUITE FILE_PATH="coverage/Code$pytest_in_test_pdf_py.coverage" NAME="pytest in test_pdf.py Coverage Results" MODIFIED="1572274220791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
   </component>
   <component name="editorHistoryManager">
@@ -401,13 +406,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PDF_generator/test_report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PDF_generator/test_report.html" />
     <entry file="file://$PROJECT_DIR$/PDF_generator/html_templates/libphys.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -419,16 +418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-125">
           <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PDF_generator/reportGen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -451,31 +440,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PDF_generator/reportGen_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hui_SuperProject/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/probability_output.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -496,6 +466,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/examples/ssts_examples.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/backend_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="482" column="22" lean-forward="true" selection-start-line="482" selection-start-column="22" selection-end-line="482" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gots_dictionary.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -503,40 +490,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/examples/ssts_examples.ipynb">
+    <entry file="file://$PROJECT_DIR$/.ipynb_checkpoints/Annotation_test-checkpoint.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/backend_test.py">
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/probability_output.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="150" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+        <state relative-caret-position="-850">
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py">
+    <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="356" lean-forward="true" selection-start-line="356" selection-end-line="356" />
+        <state relative-caret-position="51">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PDF_generator/reportGen_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PDF_generator/reportGen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
