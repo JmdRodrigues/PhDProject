@@ -1,0 +1,106 @@
+{
+  "1":{
+    "file":"arthrokinemat_2018_06_02_22_53_49.h5",
+    "phrase": "( ((sl sr){3} i tr180 i) ((sl sr){3} i tl180 i) ){9} + ((sl sr){3} i tr180 i) ((sl sr){3})",
+    "pattern": "( ((a b){3} i c i) ((a b){3} i c i) ){9} + ((a b){3} i c i) ((a b){3})",
+    "divider": 10
+  },
+
+  "2":{
+    "file":"arthrokinemat_2018_06_02_23_06_47.h5",
+    "phrase": "( ((a b){3} i c i) ((a b){3} i c i) ){9} + ((sl_tl sr_tl){3} i tr180 i) ((sl_tl sr_tl){3})",
+    "pattern": "( ((a b){3} i c i) ((a b){3} i c i) ){9} + ((a b){3} i c i) ((a b){3})",
+    "divider": 10
+  },
+
+  "3":{
+    "file":"arthrokinemat_2018_06_02_23_20_00.h5",
+    "phrase": "(tl90_lf tl90_rf i tl90_rf_b tl90_lf_b i ){19}  + tl90_lf tl90_rf i tr90_rf_b tl90_lf_b",
+    "pattern": "(a b i c d i ){19}  + a b i c d",
+    "divider": 10
+  },
+
+  "4":{
+    "file":"arthrokinemat_2018_06_02_23_22_09.h5",
+    "phrase": "(tl90_rf tl90_lf i tl90_rf_b tl90_lf_b i ){19}  + tl90_rf tl90_lf i tl90_rf_b tl90_lf_b",
+    "pattern": "(a b i c d i ){19}  + a b i c d",
+    "divider": 20
+  },
+
+  "5":{
+    "file":"arthrokinemat_2018_06_02_23_26_10.h5",
+    "phrase": "( (sr_lf sr_rf){3} i tr180 i) ((sr_lf sr_rf){3} i tl180 i) ){9} + (sr_lf sr_rf){3} i tr180 i) ((sr_lf sr_rf){3}",
+    "pattern": "( (a b){3} i c i) ((a b){3} i d i) ){9} + (a b){3} i c i) ((a b){3}",
+    "divider": 12
+  },
+
+  "8":{
+    "file":"arthrokinemat_2018_06_02_23_35_34.h5",
+    "phrase": "( ((nl nr){3} i tr180 i) ((nl nr){3} i tl180 i) ){9} + ((nl sr){3} i tr180 i) ((nl nr){3})",
+    "pattern": "( ((a b){3} i c i) ((a b){3} i d i) ){9} + ((a e){3} i c i) ((a b){3})",
+    "divider": 12
+  },
+
+  "9":{
+    "file":"arthrokinemat_2018_06_02_23_38_09.h5",
+    "phrase": "(vl120_lf vl120_rf (sl_rf_b sl_lf_b){3} i){19} vl120_lf vl120_rf",
+    "pattern": "(a b (c d){3} i){19} a b",
+    "divider": 20
+  },
+
+  "10":{
+    "file":"arthrokinemat_2018_06_02_23_40_16.h5",
+    "phrase": "(vl120_rf vl120_lf (sl_lf_b sl_rf_b){3} i){19} vl120_rf vl120_lf",
+    "pattern": "(a b (c d){3} i){19} a b",
+    "divider": 20
+  },
+
+  "11":{
+    "file":"arthrokinemat_2018_06_02_23_43_45.h5",
+    "phrase": "(vr120_lf vr120_rf (sl_lf_b sl_rf_b){3} i){19} vr120_lf vr120_rf",
+    "pattern": "(a b (c d){3} i){19} a b",
+    "divider": 20
+  },
+
+  "12":{
+    "file":"arthrokinemat_2018_06_02_23_46_03.h5",
+    "phrase": "(vr120_rf vr120_lf (sl_lf_b sl_rf_b){3} i){19} vr120_rf vr120_lf",
+    "pattern": "(a b (c d){3} i){19} a b",
+    "divider": 20
+  },
+
+  "13":{
+    "file":"arthrokinemat_2018_06_02_23_48_28.h5",
+    "phrase": "((zl_lf zl_rf){3} i (zr_rf zr_lf){3} i ){9} + ((zl_lf zl_rf){3} i (zr_rf zr_lf){3}",
+    "pattern": "((a b){3} i (c d){3} i ){9} + ((a b){3} i (c d){3}",
+    "divider": 10
+  },
+
+  "14":{
+    "file":"arthrokinemat_2018_06_02_23_51_55.h5",
+    "phrase": "(c ci i ic ){20} + c",
+    "pattern": "(a b c d ){20} + a",
+    "divider": 20
+  },
+
+  "15":{
+    "file":"arthrokinemat_2018_06_03_00_06_57.h5",
+    "phrase": "(q j2 a i){19} +  q j2 a",
+    "pattern": "(a b c i){19} +  a b c",
+    "divider": 20
+  },
+
+  "16":{
+    "file":"arthrokinemat_2018_06_03_00_08_52.h5",
+    "phrase": "(q j1 a i){19} +  q j1 a",
+    "pattern": "(a b c i){19} +  a b c",
+    "divider": 20
+  },
+
+  "17":{
+    "file":"arthrokinemat_2018_06_03_00_11_34.h5",
+    "phrase": "((u_lf + u_rf){7} + tr180 + (d_lf + d_rf ){7} + tl180 + i]{19}  (u_lf + u_rf){7} + (d_lf + d_rf ){7}",
+    "pattern": "((a + b){7} + c + (d + e ){7} + f + i]{19}  (a + b){7} + (d + e ){7}",
+    "divider": 20
+  }
+}

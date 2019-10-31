@@ -1,0 +1,141 @@
+** arthrokinemat_2018_06_02_22_53_49.h5
+walk
+
+
+( ("sl sr " * 3 i tr180 i) ("sl sr " * 3 "i tl180 i) ) * 9 + ("sl sr " * 3 i tr180 i) ("sl sr" * 3)
+
+sl - step left
+sr -  step right
+i - idle
+tl180 - turn left 180
+tr180 - turn right 180
+
+** arthrokinemat_2018_06_02_23_06_47.h5
+curve-left-step
+
+NOTE: ignore up to the first push button
+
+( ("sl_lf sl_rf " * 3 i tr180 i) ("sl_lf sr_rf " * 3 "i tl180 i) ) * 9 + ("sl_tl sr_tl " * 3 i tr180 i) ("sl_tl sr_tl" * 3)
+sl_tl - step left turn left
+sr_tl - step right turn left
+
+
+
+** arthrokinemat_2018_06_02_23_20_00.h5
+curve-left-spin-Lfirst
+
+(tl90_lf tl90_rf i tl90_rf_b tl90_lf_b i ) * 19  + tl90_lf tl90_rf i tr90_rf_b tl90_lf_b
+
+tl90_lf - turn left 90 left foot
+tl90_rf - turn left 90 right foot
+tl90_rf_b - turn left 90 right foot backwards
+tl90_lf_b - turn left 90 left foot backwards
+
+
+** arthrokinemat_2018_06_02_23_22_09.h5
+curve-left-spin-Rfirst
+
+(tl90_rf tl90_lf i tl90_rf_b tl90_lf_b i ) * 19  + tl90_rf tl90_lf i tl90_rf_b tl90_lf_b
+
+** arthrokinemat_2018_06_02_23_26_10.h5
+curve-right-step
+( (sr_lf sr_rf) * 3 i tr180 i) ((sr_lf sr_rf) * 3 i tl180 i) ) * 9 + (sr_lf sr_rf) * 3 i tr180 i) ((sr_lf sr_rf) * 3
+
+
+** arthrokinemat_2018_06_02_23_30_18.h5
+curve-right-spin-Lfirst
+(tr90_lf tr90_rf i tr90_lf_b tr90_rf_b i ) * 19  + tr90_lf tr90_rf i tr90_lf_b tr90_rf_b
+
+** arthrokinemat_2018_06_02_23_32_31.h5
+curve-right-spin-Rfirst
+
+(tr90_rf tr90_lf i tr90_lf_b tr90_rf_b i ) * 19  + tr90_rf tr90_lf i tr90_lf_b tr90_rf_b
+
+
+** arthrokinemat_2018_06_02_23_35_34.h5
+run
+( ((nl nr) * 3 i tr180 i) ((nl nr) * 3 i tl180 i) ) * 9 + ((nl sr) * 3 i tr180 i) ((nl nr) * 3)
+
+
+** arthrokinemat_2018_06_02_23_38_09.h5
+v-cut-left_Lfirst
+
+(vl120_lf vl120_rf (sl_rf_b sl_lf_b) * 3 i) * 19 vl120_lf vl120_rf
+
+** arthrokinemat_2018_06_02_23_40_16.h5
+v-cut-left_Rfirst
+
+(vl120_rf vl120_lf (sl_lf_b sl_rf_b) * 3 i) * 19 vl120_rf vl120_lf
+
+
+** arthrokinemat_2018_06_02_23_43_45.h5
+v-cut-right_Lfirst
+
+(vr120_lf vr120_rf (sl_lf_b sl_rf_b) * 3 i) * 19 vr120_lf vr120_rf
+
+** arthrokinemat_2018_06_02_23_46_03.h5
+v-cut-right_Rfirst
+
+(vr120_rf vr120_lf (sl_lf_b sl_rf_b) * 3 i) * 19 vr120_rf vr120_lf
+
+** arthrokinemat_2018_06_02_23_48_28.h5
+lateral-shuffle-left
+
+ ((zl_lf zl_rf) * 3 i (zr_rf zr_lf) * 3 i )    * 9  ((zl_lf zl_rf) * 3 i (zr_rf zr_lf) * 3
+
+
+** arthrokinemat_2018_06_02_23_51_55.h5
+
+0           sit   8351   9400
+1  sit-to-stand  10801  12430
+2         stand  13981  15380
+3  stand-to-sit  16571  18410
+
+ (c ci i ic ) * 20 c
+
+** arthrokinemat_2018_06_03_00_06_57.h5
+jump-two-leg
+
+(q j2 a i) * 19 +  q j2 a
+
+q squatch
+j2 jump two legs
+a land
+i idle
+
+
+
+** arthrokinemat_2018_06_03_00_08_52.h5
+jump-one-leg
+
+(q j1 a i) * 19 +  q j1 a
+
+
+
+```````````
+** arthrokinemat_2018_06_03_00_11_34.h5
+
+
+stair-up   8301  16280
+stair-down  18431  25510
+
+NOTE: ignore up to the first push button
+
+
+((u_lf + u_rf)* 7 + tr180 + (d_lf + d_rf ) * 7 + tl180 + i]  * 19  (u_lf + u_rf) * 7 + (d_lf + d_rf )* 7
+
+
+
+//  "6":{
+//    "file":"arthrokinemat_2018_06_02_23_30_18.h5",
+//    "phrase": "(tr90_lf tr90_rf i tr90_lf_b tr90_rf_b i ){19}  + tr90_lf tr90_rf i tr90_lf_b tr90_rf_b",
+//    "pattern": "(a b i c d i ){19}  + a b i c d",
+//    "divider": 20
+//  },
+
+  "7":{
+    "file":"arthrokinemat_2018_06_02_23_32_31.h5",
+    "phrase": "(tr90_rf tr90_lf i tr90_lf_b tr90_rf_b i ){19}  + tr90_rf tr90_lf i tr90_lf_b tr90_rf_b",
+    "pattern": "(a b i c d i ){19}  + a b i c d",
+    "divider": 20
+  },
