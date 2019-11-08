@@ -34,6 +34,7 @@ def plotCharFreq(data, labels, ax):
 def plot_ProbChar(data, time, ax):
     ax.plot(time, data)
     plt.legend(loc="upper left")
+
 def plot_TrendChar(data, time, labels,ax):
     ax.stackplot(time, data["p"], data["z"], data["n"], labels=labels, alpha=0.6)
     plt.legend(loc='upper left')

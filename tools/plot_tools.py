@@ -14,6 +14,8 @@ import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
 import matplotlib.gridspec as grid
 import matplotlib as mpl
+import colorutils as cu
+from tools.style_tools import color_list, primary_colors
 
 
 def plot_config():
@@ -100,6 +102,29 @@ def Csubplot(n_rows, n_columns, graphs):
                     Cplot(y=graph, x=0, ax=axs[graph_group])
                 graph_group+=1
     return axes
+
+def plot_textcolorized(signal, str_signal, ax):
+    Cplot(signal, ax=ax)
+    for i, char in enumerate(set(str_signal)):
+        condition = np.array([char_i == char for char_i in str_signal])
+        ax.fill_between(np.linspace(0, len(signal), len(signal)), 0, signal, where=condition, color=color_list[i])
+
+def strsignal2color(signal, str_signal, ax):
+    Cplot(signal, ax=ax)
+    for i, char_seq in enumerate(set(str_signal)):
+        condition = np.array([char_i == char_seq for char_i in str_signal])
+        color_seq = tuple(np.divide(np.sum([primary_colors[char] for char in list(char_seq)]).rgb, 255))
+        ax.fill_between(np.linspace(0, len(signal), len(signal)), min(signal), max(signal), where=condition, color=color_seq)
+
+
+    # color_seq = []
+    # print(str_signal)
+    # for char_seq in str_signal:
+    #     colors = tuple(np.divide(np.sum([primary_colors[char] for char in list(char_seq)]).rgb,255))
+    #     color_seq.append(colors)
+    #
+    # return color_seq
+
 
 def zoom(event):
     ax = gca()

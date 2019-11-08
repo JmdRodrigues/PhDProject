@@ -9,6 +9,29 @@ from tools.PeakFinder import detect_peaks
 from scipy.stats import skew, normaltest, kurtosis
 import scipy.signal as sc
 
+def quantilestates(sample, quantile_vals):
+	alpha = ["a", "b", "c", "d"]
+	sample_quantiles = list(quantile_vals)
+	sample_quantiles.append(sample)
+
+	return alpha[list(sort(sample_quantiles)).index(sample)]
+
+def quantilstatesArray(signal, quantile_vals, conc=True):
+	if(conc):
+		return "".join([quantilestates(sample, quantile_vals) for sample in signal])
+	else:
+		return [quantilestates(sample, quantile_vals) for sample in signal]
+
+def concat_np_strings(mat_string, axis=0):
+	"""
+
+	:param mat_string: NxM string matrix which has been generated from a signal
+	:param axis:	   concatenate based on the axis selected
+	:return: 		   concatenated array
+	"""
+
+	return np.apply_along_axis("".join, axis, mat_string)
+
 def prob_hist(x, hist, bins, inverted=False, log=False):
 
 	prob_x = np.zeros(len(x))
@@ -235,6 +258,9 @@ def NewWindowStat(inputSignal, statTools, fs, window_len=50, window="hanning"):
 					ss = 0.1 * max(sig)
 					pkd, md = Spikes(abs(signal_segment), mph=ss)
 					output[i - WinRange, n] = md
+
+				# elif (statTool is "df"):
+
 
 		# output = output - np.mean(output)
 		# output = output / max(output)
