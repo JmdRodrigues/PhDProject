@@ -30,7 +30,7 @@ def concat_np_strings(mat_string, axis=0):
 	:return: 		   concatenated array
 	"""
 
-	return np.apply_along_axis("".join, axis, mat_string)
+	return np.apply_along_axis("".join, axis, mat_string)[0]
 
 def prob_hist(x, hist, bins, inverted=False, log=False):
 
