@@ -51,26 +51,25 @@ for key in guide_dict.keys():
 
     all_feat_str = []
     docs = {}
+    docs_time = {}
+    docs_conc = {}
     for nbr, feat in enumerate(proc_ch1.T):
         # print(feat)
         quantile_vals = np.quantile(feat, [0.25, 0.5, 0.75])
 
         str_feat = quantilstatesArray(feat, quantile_vals, conc=False)
+        ngrams_str_feat_0= Ngrams(str_feat, n=4)
+        print(len(str_feat))
+        print(len(ngrams_str_feat_0))
 
         rl_str, rl_str_feat, rl_counts = runLengthEncoding(str_feat)
 
-        print(rl_str_feat)
+        ngrams_str_feat= Ngrams(rl_str_feat, n=4)
 
-        ngrams_str_feat, str_feat_conc =  Ngrams(rl_str_feat, 2)
-
-        print(str_feat_conc)
-        print(rl_counts)
-        print(len(str_feat_conc))
-        print(len(rl_counts))
-
-        docs[nbr] = str_feat_conc
-
-        all_feat_str += str_feat_conc
+        docs_conc[nbr] = ngrams_str_feat_0
+        docs[nbr] = ngrams_str_feat
+        docs_time[nbr] = rl_counts[:-3]
+        all_feat_str += ngrams_str_feat
 
 
 
@@ -84,7 +83,10 @@ for key in guide_dict.keys():
     print(tf_idfDict)
     print(tfDict)
     print(tf_Seq)
-
+    plt.plot(np.cumsum(docs_time[0]), tf_Seq[0], 'o')
+    plt.plot(np.cumsum(docs_time[1]), tf_Seq[1], 'o')
+    plt.plot(np.cumsum(docs_time[2]), tf_Seq[2], 'o')
+    plt.show()
 
 
         # plot_textcolorized(ch1_pp, str_feat, plt.subplot(1,1,1))

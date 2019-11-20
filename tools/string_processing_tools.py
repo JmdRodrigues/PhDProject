@@ -118,12 +118,13 @@ def WindowString(inputString, substring, statTool, window_len=50):
 def Ngrams(strSeq, n=2):
     strSeq_blob = TextBlob(" ".join([word for word in strSeq]))
     seq_grams = strSeq_blob.ngrams(n)
-
+    print(seq_grams)
     grammed_words = ["".join([w for w in sentence]) for sentence in seq_grams]
+    print(grammed_words)
+    # grammed_strSeq = [strSeq[i] + strSeq[i+1] for i in range(0, len(strSeq)-1)]
+    # print(grammed_strSeq)
 
-    grammed_strSeq = [strSeq[i] + strSeq[i+1] for i in range(0, len(strSeq)-1)]
-
-    return grammed_words, grammed_strSeq
+    return grammed_words
 
 
 
@@ -207,7 +208,7 @@ def Decode_tfDict(strDict, tf_Dict):
 
     strDecode = {doc_i:[] for doc_i in keys}
     for doc_i in keys:
-
+        print(len(strDict[doc_i]))
         tf = tf_Dict[doc_i]
         strDecode[doc_i] = [tf[word]["tf"] for word in strDict[doc_i]]
 
