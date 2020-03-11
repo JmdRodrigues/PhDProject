@@ -1,4 +1,5 @@
 from markdown2 import markdown as mkd
+from markdown2 import markdown_path as mkd_p
 # from bs4 import BeautifulSoup as bs
 import matplotlib.pyplot as plt
 import weasyprint
@@ -48,8 +49,12 @@ class Report:
         pattern = re.compile(r'{{next_o}}')
         self.output_tmp = pattern.sub(div_title, self.output_tmp)
 
-    def add_MKD(self, content):
-        html_content = mkd(content)+"{{next_o}}"
+    def add_MKD(self, content, extras=False):
+        if(extras):
+            print("tables")
+            html_content = mkd(content, extras=["wiki-tables"])+"{{next_o}}"
+        else:
+            html_content = mkd(content)+"{{next_o}}"
 
         pattern = re.compile(r'{{next_o}}')
         self.output_tmp = pattern.sub(html_content, self.output_tmp)
@@ -63,7 +68,7 @@ class Report:
         
         <figure class="fig">
             <img src="../output_html/images/"""+fig_name+""".png">
-            <figcaption>""" "Figure" + str(self.fig_counts) + " " + fig_caption + """</figcaption>
+            <figcaption>""" "Figure" + str(self.fig_counts) + " - " + fig_caption + """</figcaption>
         </figure>
         {{next_o}}
         """

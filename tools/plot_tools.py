@@ -15,7 +15,7 @@ import matplotlib.lines as mlines
 import matplotlib.gridspec as grid
 import matplotlib as mpl
 import colorutils as cu
-from tools.style_tools import color_list, primary_colors
+from tools.style_tools import color_list, color_list2, primary_colors
 
 
 def plot_config():
@@ -31,7 +31,7 @@ def plot_config():
 
     rc('text', color='grey')
 
-    rc('figure', figsize=(8, 8/ratio), dpi=96)
+    rc('figure', figsize=(8, 8/ratio), dpi=120)
 
     rc('axes', grid=True, edgecolor='grey', labelsize=20)
 
@@ -75,7 +75,7 @@ def font_config():
 
     return font0, font1, font2
 
-def Cplot(y, x=0, ax=0):
+def Cplot(y, x=0, ax=0, show=True):
     plot_config()
     normal_f, legends_f, titles_f = font_config()
 
@@ -87,27 +87,62 @@ def Cplot(y, x=0, ax=0):
     else:
         ax.plot(x, y)
 
+    if(show):
+        plt.show()
+
 def Csubplot(n_rows, n_columns, graphs):
-    if(len(graphs)!=n_rows*n_columns):
+    """
+
+    :param n_rows: number of rows
+    :param n_columns: number of columns
+    :param graphs: time series to be plotted. Organize as a list
+    of rows, and the graphs that will be assigned in each row. Example of 3*2 subplots with 2 time series
+    in the third row, first column:
+    graphs = [[row1_col1, row1_col2], [row_2_col1, row2_col2], [[row_3_col1_ts1, row_3_col1_ts2], row3_col2]]
+    :return:
+    """
+    shape_graphs = np.shape(graphs)
+    if(shape_graphs[0]*shape_graphs[1]!=n_rows*n_columns):
         return "error...number of groups of plots must be equal to the number of " \
                "subplots"
     else:
         fig, axs = plt.subplots(n_rows, n_columns)
-        graph_group = 0
+        row_iter = 0
         for row in range(0, n_rows):
-            print(row)
-            for column in range(0, n_columns):
-                print(column)
-                for graph in graphs[graph_group]:
-                    Cplot(y=graph, x=0, ax=axs[graph_group])
-                graph_group+=1
+            col_iter=0
+            if(n_columns==1):
+                for graph in graphs[row_iter]:
+                    if len(np.shape(graph)) > 1:
+                        for ts in graph:
+                            Cplot(y=ts, x=0, ax=axs[row_iter])
+                    else:
+                        Cplot(y=graph, x=0, ax=axs[row_iter])
+                row_iter += 1
+            else:
+                for graph in graphs[row_iter]:
+                    if len(np.shape(graph))>1:
+                        for ts in graph:
+                            Cplot(y=ts, x=0, ax=axs[row_iter, col_iter])
+                    else:
+                        Cplot(y=graph, x=0, ax=axs[row_iter, col_iter])
+                    col_iter+=1
+                row_iter+=1
+
     return axes
 
-def plot_textcolorized(signal, str_signal, ax):
-    Cplot(signal, ax=ax)
+def plot_textcolorized(signal, str_signal, ax, labels=True, show=False):
+    Cplot(signal, ax=ax, show=False)
+    if(labels):
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0,
+                         box.width*0.8, box.height])
+
     for i, char in enumerate(set(str_signal)):
         condition = np.array([char_i == char for char_i in str_signal])
-        ax.fill_between(np.linspace(0, len(signal), len(signal)), 0, signal, where=condition, color=color_list[i])
+        ax.fill_between(np.linspace(0, len(signal), len(signal)), 0, signal, where=condition, color=np.sort(color_list2)[i], alpha=1, label=char)
+
+    if labels:
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
 def strsignal2color(signal, str_signal, ax):
     Cplot(signal, ax=ax)
@@ -382,3 +417,54 @@ def multilineplot(signal, linesize=250, events=None, title='', dir='', step=1):
     # savefig(dir + title + '.pdf')
     # close()
 
+def plotLabelsColors(s, labels):
+    """
+    Plot the signal with each label as a different color
+    :param s: original signal
+    :param labels: the label of each sample of s
+    :return: plot with the signal plot based on the labels
+    """
+    colors = ["dodgerblue", "orangered", "lightgreen", "mediumorchid", "gold", "firebrick", "darkorange",
+              "springgreen", "lightcoral"]
+    for label in set(labels):
+        plt.plot(np.where(labels==label)[0], s[np.where(labels==label)[0]], colors[label], alpha=0.5, linewidth=3)
+
+
+
+def plotScatterColors(s, ref_s, labels, title, ax):
+    """
+
+    :param s: signal
+    :param labels: label for each sample of the signal
+    :return: figure or ax element
+    """
+    colors = ["dodgerblue", "orangered", "lightgreen", "mediumorchid", "gold", "firebrick", "darkorange",
+                  "springgreen", "lightcoral"]
+    color_lst = [colors[label] for label in labels]
+    ax.plot(s)
+    ax.plot(ref_s, "k")
+    ax.set_title(title)
+    return ax.scatter(np.linspace(0, len(s), len(s)), s, c=color_lst, alpha=0.7)
+
+def plotFeaturesTSFLBased(signal, featuresDict, lims):
+    figure, axs = plt.subplots(3, 1, sharex="all")
+    axs[0].plot(signal)
+    axs[1].plot(signal)
+    axs[2].plot(signal)
+    for feature in featuresDict["features"].keys():
+        print(feature)
+        if(feature != "stat_m_abs_dev"):
+
+            signal_i = featuresDict["features"][feature]
+            signal_i = signal_i/np.max(abs(signal_i))
+
+            if("temp" in feature):
+                #plot temporal features
+                axs[0].plot(signal_i[lims[0]:lims[1]], label=feature)
+            elif("spec" in feature):
+                axs[1].plot(signal_i[lims[0]:lims[1]], label=feature)
+            else:
+                axs[2].plot(signal_i[lims[0]:lims[1]], label=feature)
+
+    plt.legend()
+    plt.show()

@@ -3,13 +3,13 @@
             "HP": "highpass",
             "BP": "bandpass",
             "LP": "lowpass",
-            "~": "smooth",
+            "S": "smooth",
             "∥": "abs",
             "M": "stat_white",
             "RM": "RemLowPass"
   },
   "connotation": {
-            "⇞": "AmpC",
+            "A": "AmpC",
             "D1": "DiffC",
             "⇵": "ampDiffC",
             "‡": "Diff2C",

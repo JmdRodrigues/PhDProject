@@ -432,13 +432,28 @@ def prep_str(cfgstr, ls):
     return pstr
 
 
-def plot_matches(s, m, scatter=False):
+def plot_matches(s, m, color, mode="scatter"):
+    """
+
+    :param s:
+    :param m: list of list of matches (list(match)). For different match patterns, include as list of list of matches: list(match1, match2, match3,...)
+    :param color:
+    :param mode: Mode of plotting. If:
+                                    - only give the position of the match at the beginning and end (mode==scatter/vline)
+                                    - only give span of where the match was occurring (mode==span)
+    :return: plot object
+    """
+
     figure(figsize=(16, 5))
     plot(s)
-    if (scatter):
-        [plot(i[0], s[i[0]], 'o', color='r') for i in m];
-    else:
-        [vlines(i[0], np.min(s), np.max(s), lw=3) for i in m];
+
+    for c, match in zip(color, m):
+        if (mode=="scatter"):
+            [plot(i[0], s[i[0]], 'o', color=c) for i in match]
+        elif(mode=="span"):
+            [plt.axvspan(m_i[0], m_i[1]-1, alpha=0.3, color=c) for m_i in match]
+        elif (mode == "vline"):
+            [vlines(i[0], np.min(s), np.max(s), lw=3) for i in match]
 
 def pre_processing(s, processing_methods):
     s = np.asarray(s)
@@ -522,11 +537,27 @@ def connotation(s, connotation):
 
     return constr, merged_sc_str
 
+import functools
+
+def regit_map(reg, size_mg):
+    return (int(reg.span()[0] / size_mg),
+                         int(reg.span()[1] / size_mg))
+
 def symbolic_search(constr, merged_sc_str, search):
-    matches = []
+    # matches = []
     regit = re.finditer(search, constr)
-    [matches.append((int(i.span()[0] / np.shape(merged_sc_str)[0]),
-                     int(i.span()[1] / np.shape(merged_sc_str)[0]))) for i in regit]
+    matches = list(map(functools.partial(regit_map, size_mg=np.shape(merged_sc_str)[0]), regit))
+    # print(matches)
+    # it = np.nditer([regit], flags=["refs_OK"], op_flags=["readwrite"])
+    # print(it)
+    # with it:
+    #     [matches.append((int(i.span()[0] / np.shape(merged_sc_str)[0]),
+    #                      int(i.span()[1] / np.shape(merged_sc_str)[0]))) for i in it]
+    # print(list(regit))
+    # print("Done with finditer")
+    # [matches.append((int(i.span()[0] / np.shape(merged_sc_str)[0]),
+    #                  int(i.span()[1] / np.shape(merged_sc_str)[0]))) for i in regit]
+
     return matches
 
 # Main methods
@@ -555,7 +586,7 @@ def ssts(s, cfg, report='clean'):
     ns = pre_processing(ns, cfg["pre_processing"])
 
     #Layer 2: Connotation
-    constr, merged_sc_str = connotation(ns, cfg["connotation"])
+    constr, merged_sc_str = connotation([ns], cfg["connotation"])
 
     #Layer 3: Search
     matches = symbolic_search(constr, merged_sc_str, cfg["expression"])

@@ -1,0 +1,26 @@
+strict digraph G {
+"root" [color=red];
+"root" -> "a" [label="a"];
+"a" [color=red];
+"a" -> "root" [color=blue; constraint=false];
+"a" -> "a n a" [label="n"];
+"a n a" [color=red];
+"a n a" -> "n a" [color=blue; constraint=false];
+"a n a" -> "a n a n a $ A:2" [label="n"];
+"a n a n a $ A:2" [color=green];
+"a n a" -> "a n a $ A:4" [label="$"];
+"a n a $ A:4" [color=green];
+"a" -> "a $ A:6" [label="$"];
+"a $ A:6" [color=green];
+"root" -> "b a n a n a $ A:1" [label="b"];
+"b a n a n a $ A:1" [color=green];
+"root" -> "n a" [label="n"];
+"n a" [color=red];
+"n a" -> "a" [color=blue; constraint=false];
+"n a" -> "n a n a $ A:3" [label="n"];
+"n a n a $ A:3" [color=green];
+"n a" -> "n a $ A:5" [label="$"];
+"n a $ A:5" [color=green];
+"root" -> "$ A:7" [label="$"];
+"$ A:7" [color=green];
+}

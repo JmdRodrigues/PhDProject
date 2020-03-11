@@ -28,8 +28,15 @@ for key in guide_dict.keys():
     dch1_pp = np.diff(ch1_pp)/(1/fs)
     d2ch1_pp = np.diff(dch1_pp)/(1/fs)
 
+
+    # for windown_len in [10, 100, 250, 500, 1000]:
+    windown_len = 500
+    proc_ch1 = NewWindowStat(ch1_pp, ["std", "mean", "Azcr", "AmpMean" "krt"], 1000, windown_len)
+    proc_ch1_norm = stat_white(proc_ch1)
+
     cs_ch1 = np.cumsum(ch1_pp)
     cs2_ch1 = np.cumsum(cs_ch1)
+
 
     t = np.linspace(0, len(ch1_pp) / 1000, len(ch1_pp))
 
