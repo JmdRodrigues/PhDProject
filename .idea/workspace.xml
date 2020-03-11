@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83816701-f640-43f2-abe9-d8b91f54ae51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/StandardTranslation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/Text2Query.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/geneticString.py" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/geneticString.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/string_processing_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/string_processing_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/tf_idf_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/tf_idf_Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarofTime/test_ssts.py" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarofTime/ssts_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/plot_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/plot_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/processing_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/processing_tools.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,16 +19,18 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/PhDProject$gotstools.coverage" NAME="gotstools Coverage Results" MODIFIED="1572435793513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SSTS/backend" />
     <SUITE FILE_PATH="coverage/PhDProject$definitions.coverage" NAME="definitions Coverage Results" MODIFIED="1572436047230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PhDProject$tf_idf_Test.coverage" NAME="tf_idf_Test Coverage Results" MODIFIED="1583944700262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox" />
     <SUITE FILE_PATH="coverage/PhDProject$geneticString.coverage" NAME="geneticString Coverage Results" MODIFIED="1574239004900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox" />
     <SUITE FILE_PATH="coverage/PhDProject$annotation_feature.coverage" NAME="annotation_feature Coverage Results" MODIFIED="1573046817478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
+    <SUITE FILE_PATH="coverage/PhDProject$ClusteringTest.coverage" NAME="ClusteringTest Coverage Results" MODIFIED="1583926562453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/string_processing_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="202" column="31" lean-forward="true" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+            <state relative-caret-position="315">
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -33,43 +39,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/geneticString.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/string_plot_tools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/style_tools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="45" selection-start-column="30" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/plot_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="111" column="19" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="19" />
+            <state relative-caret-position="436">
+              <caret line="449" column="15" selection-start-line="449" selection-start-column="15" selection-end-line="449" selection-end-column="15" />
               <folding>
                 <element signature="e#0#105#0" expanded="true" />
               </folding>
@@ -78,31 +51,66 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/dataDavid.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+            <state>
               <folding>
-                <element signature="e#25#35#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/tf_idf_Test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="60" column="74" lean-forward="true" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/backend_test.py">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/test_ldavis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="375">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/examples/ssts_examples.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
+        <entry file="file:///usr/local/lib/python3.6/dist-packages/matplotlib/backends/backend_gtk3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5355">
+              <caret line="371" selection-start-line="371" selection-end-line="371" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/ClusteringTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/Feature_Extract.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1125">
+              <caret line="92" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,10 +118,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+            <state relative-caret-position="4140">
+              <caret line="292" column="29" selection-start-line="292" selection-start-column="29" selection-end-line="292" selection-end-column="29" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="930" column="17" lean-forward="true" selection-start-line="930" selection-start-column="17" selection-end-line="930" selection-end-column="17" />
+            <state relative-caret-position="13740">
+              <caret line="930" column="17" selection-start-line="930" selection-start-column="17" selection-end-line="930" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -171,11 +179,12 @@
         <option value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/globalString.py" />
         <option value="$PROJECT_DIR$/tools/style_tools.py" />
-        <option value="$PROJECT_DIR$/tools/plot_tools.py" />
         <option value="$PROJECT_DIR$/tools/string_plot_tools.py" />
-        <option value="$PROJECT_DIR$/tools/processing_tools.py" />
         <option value="$PROJECT_DIR$/tools/string_processing_tools.py" />
         <option value="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/geneticString.py" />
+        <option value="$PROJECT_DIR$/tools/processing_tools.py" />
+        <option value="$PROJECT_DIR$/tools/plot_tools.py" />
+        <option value="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/tf_idf_Test.py" />
       </list>
     </option>
   </component>
@@ -189,6 +198,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,18 +227,18 @@
             <path>
               <item name="PhDProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="PhDProject" type="462c0819:PsiDirectoryNode" />
-              <item name="PDF_generator" type="462c0819:PsiDirectoryNode" />
+              <item name="Hui_SuperProject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PhDProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="PhDProject" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="Hui_SuperProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Data_Examples" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,7 +271,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.geneticString">
+  <component name="RunManager" selected="Python.tf_idf_Test">
+    <configuration name="ClusteringTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GrammarofTime/SignalAnnotation/ClusteringTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="annotation_feature" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -312,6 +344,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DISPLAY" value="True" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox" />
@@ -328,7 +361,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gotstools" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="tf_idf_Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -336,34 +369,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GrammarofTime/SSTS/backend" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="reportGen_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PDF_generator" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PDF_generator/reportGen_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/tf_idf_Test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -373,19 +384,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.reportGen_test" />
       <item itemvalue="Python.annotation_feature" />
       <item itemvalue="Python.definitions" />
-      <item itemvalue="Python.gotstools" />
       <item itemvalue="Python.geneticString" />
+      <item itemvalue="Python.tf_idf_Test" />
+      <item itemvalue="Python.ClusteringTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tf_idf_Test" />
+        <item itemvalue="Python.ClusteringTest" />
         <item itemvalue="Python.geneticString" />
         <item itemvalue="Python.annotation_feature" />
         <item itemvalue="Python.definitions" />
-        <item itemvalue="Python.gotstools" />
-        <item itemvalue="Python.reportGen_test" />
       </list>
     </recent_temporary>
   </component>
@@ -407,6 +418,8 @@
       <workItem from="1573461572418" duration="4321000" />
       <workItem from="1574161170781" duration="20121000" />
       <workItem from="1574237168931" duration="4007000" />
+      <workItem from="1583923089979" duration="9543000" />
+      <workItem from="1583936947563" duration="6493000" />
     </task>
     <servers />
   </component>
@@ -422,27 +435,36 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139842000" />
+    <option name="totallyTimeSpent" value="155878000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-2" width="1920" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29935965" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984375" visible="true" weight="0.30576307" />
+      <window_info id="Structure" order="1" sideWeight="0.5015625" side_tool="true" weight="0.30256137" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32843652" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32843652" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32948583" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35977012" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35886675" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.2990556" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -490,15 +512,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/test_ssts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/test_ssts.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/scipy/signal/signaltools.py" />
     <entry file="file://$PROJECT_DIR$/.ipynb_checkpoints/Annotation_test-checkpoint.ipynb" />
     <entry file="file://$PROJECT_DIR$/configuration.conf" />
@@ -606,6 +620,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/geneticString.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/string_plot_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools/style_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -615,7 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/backend/gotstools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="525">
           <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
@@ -637,69 +681,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/annotation_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="930" column="17" lean-forward="true" selection-start-line="930" selection-start-column="17" selection-end-line="930" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/string_plot_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/geneticString.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/string_processing_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="202" column="31" lean-forward="true" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+        <state relative-caret-position="315">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/dataDavid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/matplotlib/backends/backend_gtk3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5355">
+          <caret line="371" selection-start-line="371" selection-end-line="371" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/ClusteringTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SignalAnnotation/Feature_Extract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="92" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/processing_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4140">
+          <caret line="292" column="29" selection-start-line="292" selection-start-column="29" selection-end-line="292" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13740">
+          <caret line="930" column="17" selection-start-line="930" selection-start-column="17" selection-end-line="930" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools/plot_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="111" column="19" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="19" />
+        <state relative-caret-position="436">
+          <caret line="449" column="15" selection-start-line="449" selection-start-column="15" selection-end-line="449" selection-end-column="15" />
           <folding>
             <element signature="e#0#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/test_ldavis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrammarofTime/SSTS/sandbox/tf_idf_Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="60" column="74" lean-forward="true" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -444,7 +444,11 @@ def plotScatterColors(s, ref_s, labels, title, ax):
     ax.plot(s)
     ax.plot(ref_s, "k")
     ax.set_title(title)
-    return ax.scatter(np.linspace(0, len(s), len(s)), s, c=color_lst, alpha=0.7)
+    for lab in np.unique(labels):
+        ix = np.where(labels==lab)[0]
+        ax.scatter(ix, s[ix], c=colors[lab], alpha=0.7, label=lab)
+    ax.legend()
+
 
 def plotFeaturesTSFLBased(signal, featuresDict, lims):
     figure, axs = plt.subplots(3, 1, sharex="all")
