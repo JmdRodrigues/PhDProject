@@ -165,7 +165,7 @@ def AmpChange(s, thr, method="absolute"):
         vals[n_match[0]:n_match[1]] = abs(s[n_match[0]]-s[n_match[1]-1])
         vals_str[n_match[0]:n_match[1]] = quantilstatesArray2(vals[n_match[0]:n_match[1]], thr * max_ampdiff_neg, ["f", "F"], conc=False)
 
-    print(vals_str)
+    # print(vals_str)
     return vals_str
 
 def D1Speed(s, thr):
