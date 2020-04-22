@@ -187,7 +187,7 @@ def NgramsInt(countSeq, n=2):
 def Ngrams(strSeq, n=2):
     strSeq_blob = TextBlob(" ".join([word for word in strSeq]))
     seq_grams = strSeq_blob.ngrams(n)
-    grammed_words = [" ".join([w for w in sentence]) for sentence in seq_grams]
+    grammed_words = ["".join([w for w in sentence]) for sentence in seq_grams]
 
     # grammed_strSeq = [strSeq[i] + strSeq[i+1] for i in range(0, len(strSeq)-1)]
     # print(grammed_strSeq)

@@ -6,6 +6,7 @@ from tools.plot_tools import plot_textcolorized, strsignal2color, plotScatterCol
 from tools.load_tools import loadH5
 from novainstrumentation import bandpass
 from scipy import fftpack
+from pandas import read_json
 import numpy as np
 import matplotlib.pyplot as plt
 from GrammarofTime.SSTS.sandbox.connotation_sandbox import AmplitudeTrans, AmpChange, D1Speed, SignConnotation, \
@@ -13,13 +14,14 @@ from GrammarofTime.SSTS.sandbox.connotation_sandbox import AmplitudeTrans, AmpCh
 import string
 import time
 from novainstrumentation import smooth
+from definitions import CONFIG_PATH
 
 from gensim import models, corpora
 import pyLDAvis
 import pyLDAvis.gensim
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from sklearn.decomposition import TruncatedSVD
+from sklearn.decomposition import TruncatedSVD, NMF, LatentDirichletAllocation
 import pandas as pd
 
 
@@ -46,12 +48,90 @@ def Connotation2(sig):
     print("Done with sign...")
     print("time: " + str(t3 - t2))
     print("creating string...")
-    # wave_str = addArrayofStrings([sign_str, ampdiff_str, speed_str])
-    wave_str = addArrayofStrings([ampdiff_str, speed_str])
-
+    wave_str = addArrayofStrings([speed_str, sign_str])
+    # wave_str = addArrayofStrings([sign_str])
     print("Done")
+    print(wave_str)
 
     return wave_str
+
+def movingNMF_sklearn(str_signal, win_size=250):
+    """
+
+    :param str_signal:
+    :return:
+    """
+    chunk_str = chunk_data_str(np.array(str_signal), window_size=win_size)
+    docs = []
+    # Perform RLE
+    ind_end = win_size - (len(str_signal) % win_size)
+    for i, str_window in enumerate(chunk_str):
+        if (i == len(chunk_str) - 1):
+
+            rle_chunk_cnt, seq_str, cnt_str = runLengthEncoding(str_window[:-ind_end])
+        else:
+            rle_chunk_cnt, seq_str, cnt_str = runLengthEncoding(str_window)
+
+        seq_ngramed = Ngrams(seq_str, 2)[1]
+        seq_str = " ".join(str_i for str_i in seq_ngramed)
+        docs += [seq_str]
+
+    # NMF is able to use tf-idf
+    tfidf_vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, max_features=1000, stop_words='english')
+    tfidf = tfidf_vectorizer.fit_transform(docs)
+    tfidf_feature_names = tfidf_vectorizer.get_feature_names()
+
+    nmf = NMF(n_components=3, random_state=1, alpha=.1, l1_ratio=.5, init='nndsvd').fit(tfidf)
+
+    nmf_solutions = nmf.transform(tfidf)
+    labels = np.repeat(np.argmax(nmf_solutions, axis=1), win_size)
+    display_topics(nmf,tfidf_feature_names, 10)
+
+    return labels[:-ind_end]
+
+
+def display_topics(model, feature_names, no_top_words):
+    for topic_idx, topic in enumerate(model.components_):
+        print("Topic %d:" % (topic_idx))
+        print(" ".join([feature_names[i]
+                        for i in topic.argsort()[:-no_top_words - 1:-1]]))
+
+def movingLDA_sklearn(str_signal,win_size=500, n_topics=2):
+    chunk_str = chunk_data_str(np.array(str_signal), window_size=win_size)
+    docs = []
+    # Perform RLE
+    ind_end = win_size - (len(str_signal) % win_size)
+    for i, str_window in enumerate(chunk_str):
+        if (i == len(chunk_str) - 1):
+
+            rle_chunk_cnt, seq_str, cnt_str = runLengthEncoding(str_window[:-ind_end])
+        else:
+            rle_chunk_cnt, seq_str, cnt_str = runLengthEncoding(str_window)
+
+        seq_ngramed = Ngrams(seq_str, 2)[1]
+        seq_str = " ".join(str_i for str_i in seq_ngramed)
+        # print(seq_str)
+        docs += [seq_str]
+
+    no_features = 1000
+
+    # LDA can only use raw term counts for LDA because it is a probabilistic graphical model
+    tf_vectorizer = CountVectorizer(max_df=0.95, min_df=2, max_features=no_features, stop_words='english', lowercase=False)
+    tf = tf_vectorizer.fit_transform(docs)
+    tf_feature_names = tf_vectorizer.get_feature_names()
+
+    no_topics=n_topics
+    lda = LatentDirichletAllocation(n_components=no_topics, topic_word_prior=0.01, doc_topic_prior=0.01, max_iter=10, learning_method='online', learning_offset=50.,
+                                    random_state=0).fit(tf)
+
+    lda_solutions = lda.transform(tf)
+
+    labels = np.repeat(np.argmax(lda_solutions, axis=1), win_size)
+
+    display_topics(lda, tf_feature_names, 10)
+
+    return labels[:-ind_end]
+
 
 def movingLSA(str_signal, win_size=250):
 
@@ -101,12 +181,11 @@ def movingLDA(str_signal, win_size=500):
     ind_end = win_size - (len(str_signal) % win_size)
     for i, str_window in enumerate(chunk_str):
         if(i == len(chunk_str)-1):
-
             rle_chunk_cnt, seq_str, cnt_str = runLengthEncoding(str_window[:-ind_end])
         else:
             rle_chunk_cnt, seq_str, cnt_str = runLengthEncoding(str_window)
 
-        seq_ngramed = Ngrams(seq_str, 5)
+        seq_ngramed = Ngrams(seq_str, 2)
         # print(seq_ngramed[1])
 
 
@@ -116,9 +195,9 @@ def movingLDA(str_signal, win_size=500):
     # dictionary_LDA.filter_extremes(no_below=10, no_above=0.5)
     corpus = [dictionary_LDA.doc2bow(list_of_tokens) for list_of_tokens in docs]
 
-    num_topics = 4
+    num_topics = 3
 
-    lda_model = models.LdaMulticore(corpus, num_topics=num_topics,
+    lda_model = models.LdaModel(corpus, num_topics=num_topics,
                                 id2word=dictionary_LDA,
                                 passes=100, alpha=[0.01] * num_topics,
                                 eta=[0.01] * len(dictionary_LDA.keys()))
@@ -147,23 +226,27 @@ def movingLDA(str_signal, win_size=500):
 
     return labels[:-ind_end]
 
-
-example_path = r"/media/jeanraltique/FishStory/Projectos/Doutoramento/PhDCode/PhDProject/Hui_SuperProject/Data_Examples/"
+guide = CONFIG_PATH + "/Hui_SuperProject/MovDict.json"
+guide_dict = read_json(guide).to_dict()
+example_path = CONFIG_PATH + "/Hui_SuperProject/Data_Examples/"
 
 signal = loadH5(example_path + "arthrokinemat_2018_06_03_00_08_52.h5")
 
 fs = 1000
 b = 4
-acc1 = signal[b * fs:, 9]
+acc1 = signal[b * fs:, 0]
 acc1_sm = mean_norm(acc1)
-acc1_sm = smooth(acc1, 250)
+acc1_sm = smooth(abs(acc1_sm), 1000)
+acc1_sm = acc1_sm[::50]
+
 
 # plt.plot(acc1_sm)
 # plt.show()
 
 acc_str = Connotation2(acc1_sm)
+print(acc_str)
 # lsa_labels = movingLSA(acc_str)
-lda_labels = movingLDA(acc_str)
+lda_labels = movingLDA(acc_str, win_size=50)
 
 ax = plt.subplot(1,1,1)
 # plot_textcolorized(acc1_sm, acc_str, ax)

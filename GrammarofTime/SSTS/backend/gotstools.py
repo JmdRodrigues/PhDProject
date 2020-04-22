@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 from definitions import CONFIG_PATH
+from string import ascii_lowercase
 
 
 with open(
@@ -185,7 +186,7 @@ def normalization(signal, newMin, newMax, xmin=None, xmax=None):
     return (signal - xmin) * (newMax - newMin) / (xmax - xmin) + newMin
 
 
-# Connotation Methods
+# Connotation Methods-------------
 def AmpC(s, t, p='>'):
     thr = ((np.max(s) - np.min(s)) * t) + np.min(s)
     if (p == '<'):
@@ -194,6 +195,24 @@ def AmpC(s, t, p='>'):
         s1 = (s >= (thr)) * 1
 
     return s1
+
+def AmpQuantiles(s, nbr_quantiles):
+    """
+
+    :param s: signal in the numerical domain
+    :param nbr_quantiles: number of divisions to distribute the amplitude valuues
+    :return: string representation of the signal in a sequence of chars from the ascii char list
+    """
+    quant_levels = np.linspace(0, 1, nbr_quantiles+1)[1:-1]
+
+    quant_s = np.quantile(s, quant_levels)
+    quant_s = np.insert(quant_s, 0, np.min(s))
+    quant_s = np.append(quant_s, np.max(s)+1)
+    amp_f = np.empty(len(s), dtype=str)
+    for i in range(1, len(quant_s)):
+        amp_f[np.where(np.logical_and(s<quant_s[i], s>=quant_s[i-1]))] = list(ascii_lowercase)[i-1]
+
+    return amp_f
 
 
 def DiffC(s, t, signs=['n', 'z', 'p']):
@@ -447,13 +466,13 @@ def plot_matches(s, m, color, mode="scatter"):
     figure(figsize=(16, 5))
     plot(s)
 
-    for c, match in zip(color, m):
-        if (mode=="scatter"):
-            [plot(i[0], s[i[0]], 'o', color=c) for i in match]
-        elif(mode=="span"):
-            [plt.axvspan(m_i[0], m_i[1]-1, alpha=0.3, color=c) for m_i in match]
-        elif (mode == "vline"):
-            [vlines(i[0], np.min(s), np.max(s), lw=3) for i in match]
+
+    if (mode=="scatter"):
+        [plot(i[0], s[i[0]], 'o', color="blue") for i in m]
+    elif(mode=="span"):
+        [plt.axvspan(m_i[0], m_i[1]-1, alpha=0.3, color="blue") for m_i in m]
+    elif (mode == "vline"):
+        [vlines(i[0], np.min(s), np.max(s), lw=3) for i in m]
 
 def pre_processing(s, processing_methods):
     s = np.asarray(s)

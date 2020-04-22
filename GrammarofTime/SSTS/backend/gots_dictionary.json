@@ -10,6 +10,7 @@
   },
   "connotation": {
             "A": "AmpC",
+            "AQ": "AmpQuantiles",
             "D1": "DiffC",
             "⇵": "ampDiffC",
             "‡": "Diff2C",

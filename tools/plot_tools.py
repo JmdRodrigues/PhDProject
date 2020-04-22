@@ -442,7 +442,7 @@ def plotScatterColors(s, ref_s, labels, title, ax):
                   "springgreen", "lightcoral"]
     color_lst = [colors[label] for label in labels]
     ax.plot(s)
-    # ax.plot(ref_s, "k")
+    ax.plot(ref_s, "k")
     ax.set_title(title)
     for lab in np.unique(labels):
         ix = np.where(labels==lab)[0]

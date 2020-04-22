@@ -17,6 +17,14 @@ from numpy.lib.stride_tricks import as_strided as ast
 import tools.multiprocess_tools as mpt
 
 
+def sumvolve(x,window):
+    lw=len(window)
+    res=np.zeros(len(x)-lw,'d')
+    for i in range(len(x)-lw):
+        res[i]=sum(abs(x[i:i+lw]-window))/float(lw)
+        #res[i]=sum(abs(x[i:i+lw]*window))
+    return res
+
 def quantilestates(sample, quantile_vals):
 	alpha = ["a", "b", "c", "d"]
 	sample_quantiles = list(quantile_vals)
@@ -170,6 +178,7 @@ def BigPeaks(s, th, min_peak_distance=5, peak_return_percentage=0.1):
 		else:
 			pp == []
 	return pp
+
 
 def chunk_data_str(data,window_size,overlap_size=0,flatten_inside_window=True):
 	assert data.ndim == 1 or data.ndim == 2

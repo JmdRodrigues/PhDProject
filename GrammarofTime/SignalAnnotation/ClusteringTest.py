@@ -87,12 +87,13 @@ X = StandardScaler().fit_transform(np.transpose(X))
 
 # aff = AffinityPropagation(damping=0.9, preference=-100).fit(X)
 
-km = KMeans(n_clusters=4).fit(X)
+km = KMeans(n_clusters=4).fit(X[:,::10])
 labels = km.labels_
 
 plt.title(guide_dict[key]["phrase"])
-plt.plot(signal)
-plotScatterColors(signal, labels)
+# plt.plot(signal)
+ax = plt.subplot(1,1,1)
+plotScatterColors(signal, labels, title=guide_dict[key]["phrase"], ax=ax)
 # plt.plot(signal/max(signal))
 # plt.plot(std_sig)
 # plt.plot(zcr_sig)
